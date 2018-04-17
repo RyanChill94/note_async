@@ -1,0 +1,10 @@
+{
+  "title": "memoziation.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 函数记忆化\n// 提高性能 缓存函数返回结果\n// 减少频繁调用函数 \n\n\n\nfunction memoize(fn){\n    var cache = {};\n    console.log(cache)\n       \n    return function(n){\n        var key = [].slice.call(arguments);\n        var cacheId = generateUuid(key);\n        if(!(cacheId in cache)){\n            cache[cacheId] = fn.apply(null,arguments);\n        }\n        return cache[cacheId];\n        \n        function generateUuid(argv){\n            return JSON.stringify(argv);\n        }\n    }\n}\n\n\nfunction expensiveOperation(a,b) {\n  console.log('this should be shown once');\n  return a+b+22;\n}\n\nvar memoized = memoize(expensiveOperation);\nconsole.log(memoized(1,2));\nconsole.log(memoized(1,2));\nconsole.log(memoized(2,6));\nconsole.log(memoized(1,8));"
+    }
+  ]
+}

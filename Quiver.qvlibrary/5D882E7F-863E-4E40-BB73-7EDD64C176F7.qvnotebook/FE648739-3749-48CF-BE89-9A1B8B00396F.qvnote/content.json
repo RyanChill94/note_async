@@ -1,0 +1,10 @@
+{
+  "title": "own_map_fn.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function map(arr,fn){\n    var result = [],\n        len = arr.length;\n    for(var i = 0; i < len; i++ ){\n        var temVal = fn(arr[i],i,arr)\n        result.push(temVal);\n    }\n    return result;\n}\n\n// better\n\nfunction map(arr, mapper, ctx){\n    var ret = [],\n        len = arr.length;\n    for(var i= 0;i<len;i++){\n        // more elegant\n        ret.push.apply(ctx,arr[i],i,arr);\n    }\n    return ret;\n}"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "CROS_img.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function cacheExternalImage(url){\n    var img = new Image,\n    src = url,\n    cvs = document.createElement('canvas'),\n    ctx = cvs.getContext('2d');\n    img.crossOrigin = \"Anonymous\"; // important\n    img.onload = function() {\n      //ctx.drawImage( img, 0, 0 );\n    }\n    img.src = src;\n    if ( img.complete || img.complete === undefined ) {\n        img.src = \"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==\";\n        img.src = src;\n    }\n    return img;\n}"
+    }
+  ]
+}

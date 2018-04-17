@@ -1,0 +1,10 @@
+{
+  "title": "Once.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 只调用一次\nfunction once(fn){\n    var isInit = false;\n    var result;\n    return function(){\n        if(!isInit){\n            isInit = true;\n            // apply -> 数组\n            result = fn.apply(this,arguments);\n        }\n        return result;\n    }\n}"
+    }
+  ]
+}

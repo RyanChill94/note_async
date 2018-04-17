@@ -1,0 +1,10 @@
+{
+  "title": "tooltipFormatter.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "formatter: function () {\n              var t = this.points;\n              var timeStr = '';\n              timeStr = utilService.chartToolTipXDateFormat(this.x);\n              var v = '';\n              var seriesObj = [];\n              for (var i = 0; i < t.length; i++) {\n                  var tempObj = {};\n                  var id = t[i].series.userOptions.id || t[i].series.userOptions.code;\n                  var fomatPatten = indecatorsMeta[id].format;\n                  if (fomatPatten) {\n                      v = dataFormatter(t[i].y, fomatPatten);\n                  }\n                  tempObj.color = t[i].color;\n                  tempObj.name =  t[i].series.name;\n                  tempObj.data =  t[i].series.userOptions.id == \"TaskFinishTime\"\n                                  ? $scope[prefix].chartData.series[0].tooltip[t[i].point.index]\n                                  :v;\n                  seriesObj.push(tempObj);\n              }\n              return utilService.chartToolTipOutHtml(timeStr, 'normal', seriesObj);\n          }"
+    }
+  ]
+}

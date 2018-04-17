@@ -1,0 +1,10 @@
+{
+  "title": "gulpfile.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 将gulp任务 和 config 拆分 更好管理\n//\n// file.cwd -> current working dictionary\n// Unix/Linux中，路径的分隔采用正斜杠\"/\"，比如\"/home/hutaow\"；而在Windows中，路径分隔采用反斜 杠\"\\\"，比如\"C:\\Windows\\System\"。 \n// window在网络编程中的路径 写作 C:\\\\xx\\yy\\\\zz\n\n\n// 项目文件目录定义\nvar FOLDER_GULP = './gulp';\nvar FOLDER_GULP_TASK = FOLDER_GULP + '/tasks';\nvar FILE_GULP_CONFIG = FOLDER_GULP + '/gulp.config.js';\nvar FILE_UTIL = FOLDER_GULP + '/util.js';\nvar FILE_PACKAGE = './package.json';\t\n\n// 获取文件相对目录\nvar cwd = util.makePathUnixLike(file.cwd),\n    realPath = util.makePathUnixLike(file.path),\n    relatePath = realPath.replace(new RegExp('^' + cwd + '/'), ''), //删除当前的工作目录\t\n    fileName = path.basename(realPath),\n    temp = relatePath.split('/');"
+    }
+  ]
+}

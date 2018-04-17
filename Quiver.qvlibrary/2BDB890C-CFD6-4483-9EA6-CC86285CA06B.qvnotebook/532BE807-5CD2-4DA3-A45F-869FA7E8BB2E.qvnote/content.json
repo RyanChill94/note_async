@@ -1,0 +1,9 @@
+{
+  "title": "git",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "#### git stash\n\n- git stash [ pop | applay ]\n- git list\n- git clear\n\n\n#### add remote branch\n- git remote add pb https://github.com/paulboone/ticgit  对应简写 和完整url\n- git remote -v\n- git fetch pb[remote-name]\n\n#### git push\n- git push [remote-name] [branch-name]\n- 查看这个分支的信息 git remote show origin\n\n#### git fetch\ngit pull = git fetch + merge to local"
+    }
+  ]
+}

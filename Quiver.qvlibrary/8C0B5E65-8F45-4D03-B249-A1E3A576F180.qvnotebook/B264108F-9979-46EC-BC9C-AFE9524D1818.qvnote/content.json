@@ -1,0 +1,10 @@
+{
+  "title": "react_error_bounary.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import React from 'react'\n\nexport default class ErrorBoundary extends React.Component {\n    constructor(props) {\n      super(props);\n      this.state = { error: null, errorInfo: null };\n    }\n    \n    componentDidCatch(error, errorInfo) {\n      // Catch errors in any components below and re-render with error message\n      this.setState({\n        error: error,\n        errorInfo: errorInfo\n      })\n\n    }\n    \n    render() {\n      if (this.state.errorInfo) {\n        // Error path\n        return (\n          <div>\n            <h2>组件初始化失败，回退方案</h2>\n            <pre>\n              {this.state.error && this.state.error.toString()}\n              {this.state.errorInfo.componentStack}\n            </pre>\n          </div>\n        );\n      }\n\n      return this.props.children;\n    }  \n}\n"
+    }
+  ]
+}

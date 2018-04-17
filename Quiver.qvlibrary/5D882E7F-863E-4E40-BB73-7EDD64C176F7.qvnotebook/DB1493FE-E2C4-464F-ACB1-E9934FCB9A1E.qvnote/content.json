@@ -1,0 +1,10 @@
+{
+  "title": "array-concat-push.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// MERGE ARRAY USING push()\n// 通过 apply() 和 push() 来合并两个 array\n(function () {\n  var a = [1, 2];\n  var b = ['x', 'y'];\n\n  // 不能直接使用 a.push(b) 方式，它仅仅返回 [1, 2, ['x', 'y']]\n  a.push.apply(a, b);\n  console.log(a); // [1, 2, 'x', 'y']\n  // 相当于: a = a.concat(b);\n})();\n\n(function () {\n  var test = [1, 2, 3]; // [1, 2, 3]\n  var example = [{test: 'test value'}, 'a', 'b', 4, 5];\n  var concatExample = test.concat(example); // [1, 2, 3, { test: 'test value'}, 'a', 'b', 4, 5]\n\n  // 修改一下对象的值\n  example[0].test = 'a changed value';\n  console.log(concatExample[3].test); // 会发现在合并过后的新 array 里，对象的值也发生了改变 Object { test: \"a changed value\"}\n  example[1] = 'dog';\n  console.log(concatExample[4]); // 'a'\n})();\n\n\n//快速生成指定数组\nArray.apply(null, Array(chartConfig.series.length)).map((i)=>{\n            return {visible:false};\n        });"
+    }
+  ]
+}

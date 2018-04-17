@@ -1,4 +1,32 @@
 {
-  "title": "Untitled Note",
-  "cells": []
+  "title": "React_PureComponent",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div><span style=\"color: rgb(221, 221, 221);\">在React应用中添加?react_perf</span><span style=\"color: rgb(221, 221, 221);\">进行性能分析</span><br></div><div><font color=\"#cccccc\">关心performance tab 下的 user timing 选项</font></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/*\n * pureComponent 实现了一层shallow equal\n * 比较 props 的个数时候相同 \n * 比较 this.props 和 next.props 的 key 值是否相等 对象时候是同一个引用\n */\n "
+    },
+    {
+      "type": "text",
+      "data": "shallow compare"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "\n// pureCompare 在 CSU 生命周期中实现了浅比较\nif (this._compositeType === CompositeTypes.PureClass) {\n  shouldUpdate = !shallowEqual(prevProps, nextProps) || ! shallowEqual(inst.state, nextState);\n}\n\n// 用原型链的方法\nconst hasOwn = Object.prototype.hasOwnProperty\n\n// 这个函数实际上是Object.is()的polyfill\nfunction is(x, y) {\n  if (x === y) {\n    return x !== 0 || y !== 0 || 1 / x === 1 / y\n  } else {\n    return x !== x && y !== y\n  }\n}\n\nexport default function shallowEqual(objA, objB) {\n  // 首先对基本数据类型的比较\n  if (is(objA, objB)) return true\n  // 由于Obejct.is()可以对基本数据类型做一个精确的比较， 所以如果不等\n  // 只有一种情况是误判的，那就是object,所以在判断两个对象都不是object\n  // 之后，就可以返回false了\n  if (typeof objA !== 'object' || objA === null ||\n      typeof objB !== 'object' || objB === null) {\n    return false\n  }\n\n  // 过滤掉基本数据类型之后，就是对对象的比较了\n  // 首先拿出key值，对key的长度进行对比\n\n  const keysA = Object.keys(objA)\n  const keysB = Object.keys(objB)\n\n  // 长度不等直接返回false\n  if (keysA.length !== keysB.length) return false\n  // key相等的情况下，在去循环比较\n  for (let i = 0; i < keysA.length; i++) {\n  // key值相等的时候\n  // 借用原型链上真正的 hasOwnProperty 方法，判断ObjB里面是否有A的key的key值\n  // 属性的顺序不影响结果也就是{name:'daisy', age:'24'} 跟{age:'24'，name:'daisy' }是一样的\n  // 最后，对对象的value进行一个基本数据类型的比较，返回结果\n    if (!hasOwn.call(objB, keysA[i]) ||\n        !is(objA[keysA[i]], objB[keysA[i]])) {\n      return false\n    }\n  }\n\n  return true\n}"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp;avoid"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " // 对于一些非常简单的组件，使用pureComponent去进行浅比较是十分不值得的，比diff算法算出来还慢\n// in sort ：pureComponent对于表格、表单非常有用，button 和 icon 就不要考虑了\n\n <Table\n    // map returns a new instance of array so shallow comparison will fail\n    rows={rows.map(/* ... */)}\n    // object literal is always \"different\" from predecessor\n    style={ { color: 'red' } }\n    // arrow function is a new unnamed thing in the scope, so there will always be a full diffing\n    onUpdate={() => { /* ... */ }}\n />"
+    }
+  ]
 }

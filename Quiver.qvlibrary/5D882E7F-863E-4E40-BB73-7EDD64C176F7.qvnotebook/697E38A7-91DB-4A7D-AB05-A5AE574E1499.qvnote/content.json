@@ -1,0 +1,10 @@
+{
+  "title": "invertTree.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "\n// 递归\nfunction invertTree(tree) {\n  if (tree) {\n    if (tree.left || tree.right) {\n      var tmp = tree.left;\n      tree.left = tree.right;\n      tree.right = tmp;\n      invertTree(tree.left);\n      invertTree(tree.right);\n    }\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "arrow_function",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// arrow function 的 this 指向是定义的时候确定的\n// 在绑定定时器/窗口事件的时候不需要 let _this = this\n\nconst currentUrl = _ => window.location.href;\n\nconst difference = (arr, values) => arr.filter(v => !values.includes(v));\n\n// 如果有多条语句 就要使用{} 包裹，并且增加return 语句\nconst isEven = num => Math.abs(num) % 2 === 0;\n\n// equal\nconst isEven = num => { return Math.abs(num) % 2 === 0 }\n"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Middleware.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 提供use 和 go 两种方式\n\nfunction Middleware(){\n    // 初始化中间件数组\n    var middles = [];\n    return {\n        use: function(fn) { \n            // 形成中间件线性队列\n            middles.push(fn); \n            },\n        go : function(cb) {\n            var ctx = {};\n            var index = 0;\n            next();\n            function next() {\n                if(index < middles.length){\n                    // 将下一个要执行的中间件当作当前中间件的回调函数\n                    // 当前中间件执行完成之后 手动触发下一个中间件的使用\n                    middles[index++].call(ctx,next)\n                }else{\n                    cb.call(ctx)\n                }\n            }\n        }\n    }\n}\n\n\n// usage\nvar middleware = new Middleware();\n\nmiddleware.use(function(next) {\n  var self = this;\n  setTimeout(function() {\n    self.hook1 = true;\n    next();\n  }, 10);\n});\n\nmiddleware.use(function(next) {\n  var self = this;\n  setTimeout(function() {\n    self.hook2 = true;\n    next();\n  }, 10);\n});\n\nvar start = new Date();\nmiddleware.go(function() {\n  console.log(this.hook1); // true\n  console.log(this.hook2); // true\n  console.log(new Date() - start); // around 20\n});"
+    }
+  ]
+}

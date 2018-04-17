@@ -1,0 +1,10 @@
+{
+  "title": "flatten.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function flatten(arr){\n    var result = [];\n    \n    // trash code\n    \n    /*\n    arr.forEach(search);\n    \n    function search(arr){\n        arr.forEach(function(item){\n            if(typeof item == 'object' && isArray(arr)){\n                search(arr);\n            }else{\n                result.unshift(item);\n            }\n        })\n    }\n    */\n    \n    // correct\n    var result = [];\n    arr.forEach(function(item){\n        if(item instanceof Array){\n            // 为什么非得这么写？\n            // 直接写成 result.push(item)?  相当于数组没解构就push进去\n            // 再次强调 apply --> 数组\n            result.push.apply(result,flatten(item))\n        }else{\n            result.push(item)\n        }\n    });\n    \n    return result\n}\n\n\n// flatten with trunk\n\nfunction flattenThunk(thunk){\n    return function(cb){\n        next();\n        function next(){\n            thunk(function(err,result){\n                if(typeof result === 'function'){\n                    thunk = result;\n                    next();\n                }else{\n                    cb(null,result)\n                }\n            })\n        }\n    }\n}\n\n"
+    }
+  ]
+}
