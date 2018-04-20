@@ -1,0 +1,9 @@
+{
+  "title": "React_lifeCycle",
+  "cells": [
+    {
+      "type": "text",
+      "data": "- 组件内部的setState并不会调用 willReceiveProps&nbsp;<div>&nbsp; 如果在willReceiveProp 调用 setState 会导致死循环</div>"
+    }
+  ]
+}

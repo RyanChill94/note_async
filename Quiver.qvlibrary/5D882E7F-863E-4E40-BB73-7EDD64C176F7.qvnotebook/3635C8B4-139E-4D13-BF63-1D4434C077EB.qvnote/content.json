@@ -1,0 +1,10 @@
+{
+  "title": "FullScreen.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " var fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled ||\n            document.msFullscreenEnabled;\n        var fullScreenFlag = fullscreenEnabled ? true : false;\n        var domEle = document.documentElement;\n\n        function launchFullscreen(element) {\n            if (element.requestFullscreen) {\n                element.requestFullscreen();\n            } else if (element.mozRequestFullScreen) {\n                element.mozRequestFullScreen();\n            } else if (element.msRequestFullscreen) {\n                element.msRequestFullscreen();\n            } else if (element.webkitRequestFullscreen) {\n                element.webkitRequestFullScreen();\n            }\n        }\n\n        function exitFullscreen() {\n            if (document.exitFullscreen) {\n                document.exitFullscreen();\n            } else if (document.msExitFullscreen) {\n                document.msExitFullscreen();\n            } else if (document.mozCancelFullScreen) {\n                document.mozCancelFullScreen();\n            } else if (document.webkitExitFullscreen) {\n                document.webkitExitFullscreen();\n            }\n        }\n        fullScreenFlag ? exitFullscreen() : launchFullscreen(domEle)"
+    }
+  ]
+}

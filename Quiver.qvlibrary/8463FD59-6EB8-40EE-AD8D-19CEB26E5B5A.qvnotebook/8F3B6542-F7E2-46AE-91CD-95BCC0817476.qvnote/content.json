@@ -1,0 +1,9 @@
+{
+  "title": "React-jsx-highchart-analysis.js",
+  "cells": [
+    {
+      "type": "text",
+      "data": "withHightChart(App, HighCharts) -&gt; 提供highchart方法<div><br></div><div>为什么要使用<span style=\"color: rgb(221, 221, 221);\">withHightChart包裹?</span></div><div><div style=\"color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 22px; white-space: pre;\"><span style=\"color: #4ec9b0;\"><br></span></div><div style=\"color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 22px; white-space: pre;\"><span style=\"color: #4ec9b0;\">HighchartsChart组件里面已经提供了</span></div></div>"
+    }
+  ]
+}
