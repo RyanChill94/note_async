@@ -1,0 +1,33 @@
+{
+  "title": "HTTPS知识点",
+  "cells": [
+    {
+      "type": "text",
+      "data": "智力题<div>A &nbsp;C(PRIATE) &nbsp;B</div><div><br></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "- 证书\n  - 证书签发机构\n  - 授权链路\n  - JD的证书\n- 数字签名\n  - 公钥私钥\n  - 公钥指纹 （公钥的长度较长（1024或则2048位） 再进行一次MD5之后的值）\n  - 公钥登录\n  - 数字签名 摘要内容 用私钥加密 收件人使用公钥解密 再将内容摘要算法 比对 判断内容是否发生更改\n- SSH 协议\n  - 生成ssh公钥 \n- "
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（1）远程主机收到用户的登录请求，把自己的公钥发给用户。</span><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（2）用户使用这个公钥，将登录密码加密后，发送回来。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><br></span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><span style=\"color: rgb(17, 17, 17); font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</span><br></span></div>"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(85, 85, 85); font-family: Lato, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif; font-size: 14px; font-variant-ligatures: normal; orphans: 2; text-align: justify; widows: 2; background-color: rgb(255, 255, 255);\">在对称秘钥加密的体系中，加密和解密使用同一个秘钥，显而易见的是这种方式存在一个很严重的弊端，那就是秘钥的分发和管理，一旦秘钥在分发过程中被人窃取，加密形同虚设。秘钥的管理也相当繁琐，如下图，如果我们要同时与n个人通信，那么每个人都将保存n-1个秘钥。</span>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "口令登录 -&gt; 警告 只知道远程主机的公钥指纹 但是不知道host是否可信 如果用户同意 加入know_host 下次不在询问 直接进入输入密码<div><br></div><div>公钥登录 将用户的公钥存放在远端 建立连接的时候 远程主机 发出随机字符串 user私钥加密 host公钥解密之后 判断是否一致</div><div>github gitlab ssh登录方式</div>"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(47, 47, 47); font-family: Georgia, serif; font-size: 18px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">CA 机构Symantec、Comodo、Godaddy、GolbalSign 和 Digicert。</span>"
+    }
+  ]
+}

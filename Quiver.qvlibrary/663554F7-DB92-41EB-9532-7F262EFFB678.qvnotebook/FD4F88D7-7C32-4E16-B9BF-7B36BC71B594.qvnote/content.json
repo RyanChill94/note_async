@@ -1,0 +1,14 @@
+{
+  "title": "Background-blend-mode",
+  "cells": [
+    {
+      "type": "text",
+      "data": "图片混合模式"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//Formal syntax:  <blend-mode>#\n//where \n//<blend-mode> = normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity\n\n/* 单值 */\nbackground-blend-mode: normal;\n\n/* 双值，每个背景一个值 */\nbackground-blend-mode: darken, luminosity;\n\nbackground-blend-mode: initial;\nbackground-blend-mode: inherit;\nbackground-blend-mode: unset;"
+    }
+  ]
+}

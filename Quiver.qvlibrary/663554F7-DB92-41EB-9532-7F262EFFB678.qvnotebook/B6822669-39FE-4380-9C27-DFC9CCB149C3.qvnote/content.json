@@ -4,7 +4,16 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "  //Keyword values\n  \n  clip-path: none;\n\n  /* <clip-source> values */ \n  clip-path: url(resources.svg#c1);\n\n  /* <geometry-box> values */\n  clip-path: margin-box;\n  clip-path: border-box;\n  clip-path: padding-box;\n  clip-path: content-box;\n  clip-path: fill-box;\n  clip-path: stroke-box;\n  clip-path: view-box;\n\n  /* <basic-shape> values */\n  clip-path: inset(100px 50px);\n  clip-path: circle(50px at 0 100px);\n  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\n\n  /* Box and shape values combined */\n  clip-path: padding-box circle(50px at 0 100px);\n\n  /* Global values */\n  clip-path: inherit;\n  clip-path: initial;\n  clip-path: unset;"
+      "data": " // 废弃的clip的用法\n rect(top,right,bottom,left) 指的是距离四个方向的距离\n 坐标轴的原点都是左上角\n 所以只有 top < bottom 才能出现裁剪区域\n \n clip-path 对应的是到各自变得距离! rect 使用 inset替代"
+    },
+    {
+      "type": "text",
+      "data": "<div><img src=\"quiver-image-url/92DDCC7599502FBE140F505BF0CE59EC.png\" alt=\"2011-04-02_000416.png\" width=\"225\" height=\"225\"><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "\n  //Keyword values\n  \n  clip-path: none;\n\n  /* <clip-source> values */ \n  clip-path: url(resources.svg#c1);\n\n  /* <geometry-box> values */\n  clip-path: margin-box;\n  clip-path: border-box;\n  clip-path: padding-box;\n  clip-path: content-box;\n  clip-path: fill-box;\n  clip-path: stroke-box;\n  clip-path: view-box;\n\n  /* <basic-shape> values */\n  clip-path: inset(100px 50px);\n  clip-path: circle(50px at 0 100px);\n  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\n\n  /* Box and shape values combined */\n  clip-path: padding-box circle(50px at 0 100px);\n\n  /* Global values */\n  clip-path: inherit;\n  clip-path: initial;\n  clip-path: unset;\n  \n  acacacacac"
     }
   ]
 }
