@@ -11,7 +11,7 @@
     },
     {
       "type": "text",
-      "data": "<span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（1）远程主机收到用户的登录请求，把自己的公钥发给用户。</span><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（2）用户使用这个公钥，将登录密码加密后，发送回来。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><br></span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><span style=\"color: rgb(17, 17, 17); font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</span><br></span></div>"
+      "data": "<div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">&nbsp; SSH 登录</span></div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（</span><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">1）远程主机收到用户的登录请求，把自己的公钥发给用户。</span><div><div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（2）用户使用这个公钥，将登录密码加密后，发送回来。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><br></span></div><div><span style=\"color: rgb(17, 17, 17); font-family: Georgia, serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; orphans: 2; widows: 2; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\"><span style=\"color: rgb(17, 17, 17); font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.12px; word-spacing: 2.4px; background-color: rgb(245, 245, 213);\">这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。【不经过第三方机构的认证 faqi】</span><br></span></div></div></div>"
     },
     {
       "type": "text",
@@ -27,7 +27,23 @@
     },
     {
       "type": "text",
-      "data": "<span style=\"color: rgb(47, 47, 47); font-family: Georgia, serif; font-size: 18px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">CA 机构Symantec、Comodo、Godaddy、GolbalSign 和 Digicert。</span>"
+      "data": "<span style=\"color: rgb(47, 47, 47); font-family: Georgia, serif; font-size: 18px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">CA 机构TOP5 Symantec、Comodo、Godaddy、GolbalSign 和 Digicert。</span>"
+    },
+    {
+      "type": "text",
+      "data": "CA 机构的作用 &nbsp;-&gt; &nbsp;确保提供的公钥是不是伪造的 为公钥做认证 CA用自己的私钥对需要认证的公钥和一些信息进行加密 &nbsp;建立连接的用户用CA的公钥就行解密 判断这个服务器的公钥是否是可靠的<div><br></div><div><br></div><div>HTTP over SSL&nbsp;<span style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 16px; orphans: 2; text-align: justify; widows: 2; background-color: rgb(255, 255, 255);\">(Secure Sockets Layer) 安全链路层<br><br></span><a href=\"https://blog.lilydjwg.me/2015/4/28/why-you-should-not-install-12306-cert.90230.html\">https://blog.lilydjwg.me/2015/4/28/why-you-should-not-install-12306-cert.90230.html</a><span style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 16px; orphans: 2; text-align: justify; widows: 2; background-color: rgb(255, 255, 255);\"><br></span></div><div>你不应该安装12306证书</div>"
+    },
+    {
+      "type": "text",
+      "data": "对称 加密秘钥 和解密秘钥之间可以相互推算 &nbsp;（可以是一个密钥对）<div><br></div><div><br></div><div>实际场景</div><div>C&nbsp;</div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "存疑<div>1. 所谓的公私钥都是相对的&nbsp;</div><div>在数学上是可以反推的</div><div><span style=\"color: rgb(26, 26, 26); font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; white-space: pre-wrap; widows: 2; background-color: rgb(255, 255, 255);\">RSA的原理是得到两个大素数的乘积是简单的事，但想从该乘积反推出这两个大素数却没有任何有效的办法</span><br></div><div style=\"orphans: 2; widows: 2;\"><font face=\"-apple-system, system-ui, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif\"><span style=\"font-size: 15px; white-space: pre-wrap;\">因数分解  大整数的影视</span></font></div><div><a href=\"https://www.zhihu.com/question/36256081\">https://www.zhihu.com/question/36256081</a><br></div>"
     }
   ]
 }
