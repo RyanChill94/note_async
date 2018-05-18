@@ -1,0 +1,14 @@
+{
+  "title": "npm/yarn",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2>NPM</h2>\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " - npm [list/ls] // 查看安装的包\n - npm i -g eazydict --verbose  // --verbose 可以查看\n - npm outdated 检查模块是否已经过时\n - npm publish 发包\n - npm root [packageName] // 查看包的安装路径\n - npm config\n    - list //查看所有配置\n    - get proxy / set proxy / delete proxy"
+    }
+  ]
+}
