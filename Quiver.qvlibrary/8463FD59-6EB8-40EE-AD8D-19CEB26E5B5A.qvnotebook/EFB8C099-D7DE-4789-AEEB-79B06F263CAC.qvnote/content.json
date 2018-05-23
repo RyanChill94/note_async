@@ -1,0 +1,9 @@
+{
+  "title": "ppzh",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1 action 中getState()就可以获取到 store 中的数据了"
+    }
+  ]
+}

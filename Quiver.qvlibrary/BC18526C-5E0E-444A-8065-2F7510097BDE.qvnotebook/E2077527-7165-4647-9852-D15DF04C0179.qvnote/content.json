@@ -1,0 +1,10 @@
+{
+  "title": "utils.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var glob = require('glob');\nvar path = require('path');\n\n/*\npickFiles({\n  id: /([^\\/]+).js$/,\n  pattern: './src/base/*.js',\n});\n*/\nexports.pickFiles = function(options) {\n  var files = glob.sync(options.pattern);\n  return files.reduce(function(data, filename) {\n    var matched = filename.match(options.id);\n    var name = matched[1];\n    data[name] = path.resolve(__dirname, filename);\n    return data;\n  }, {}); \n};\n\nexports.fullPath = function(dir) {\n  return path.resolve(__dirname, dir);\n};\n\nexports.getIP = function() {\n  var os = require('os');\n  var IPv4 = '127.0.0.1';\n  var interfaces = os.networkInterfaces();\n  for (var key in interfaces) {\n    interfaces[key].some(function(details){\n      if (details.family == 'IPv4' && key == 'en0') {\n        IPv4 = details.address;\n        return true;\n      }\n    });\n  }\n  return IPv4;\n}"
+    }
+  ]
+}

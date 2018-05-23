@@ -1,0 +1,10 @@
+{
+  "title": "webpack.release.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/**\n  node webpack.release.js\n     --watch         实时发布\n     --uglify        压缩 \n     --deploy=test   发布到测试环境，默认选项\n     --deploy=online 发布到生产环境\n\n  NODE_ENV=production node build/webpack.release.js --watch --uglify --deploy=test \n  NODE_ENV=production node build/webpack.release.js --watch --uglify --deploy=online\n*/\n\nvar webpack = require('webpack');\nvar config = require('./webpack.config');\n// var RenamePlugin = require('./rename.plugin');\n\nvar args = process.argv;\nvar watch = args.indexOf('--watch') > -1;\nvar online = args.indexOf('--deploy=online') > -1;\n\n// 测试环境静态资源 domain\nvar testPublicPath = '/';\n// 生产环境静态资源 domain\nvar onlinePublicPath = '//static.360buyimg.com/bid/msz/';\n\nif (online) {\n  config.output.publicPath = onlinePublicPath; \n} else {\n  config.output.publicPath = testPublicPath; \n}\n\n// config.plugins.push(new RenamePlugin());\n\n// config.devtool = \"#eval\";\n\nvar compiler = webpack(config);\n\nfunction callback(err, stats) {\n  if (err) {\n    console.log(err);\n  } else {\n    console.log(stats.toString({\n      colors: true,\n      chunks: false,\n      children: false,\n    }));  \n  }\n}\n\nif (watch) {\n  compiler.watch({}, callback);\n} else {\n  compiler.run(callback);\n}\n\n\n\n\n"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "rename.plugin.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var fs = require('fs');\nvar path = require('path');\nvar md5 = require('md5');\n\n\nfunction RenamePlugin() {\n}\n\nRenamePlugin.prototype.apply = function(compiler) {\n  compiler.plugin('done', function(stats) {\n    var htmlFiles = [];\n    var hashFiles = [];\n    var assets = stats.compilation.assets;\n\n    Object.keys(assets).forEach(function(fileName) {\n      var file = assets[fileName];\n      if (/\\.(css|js)$/.test(fileName)) {\n        var hash = md5(file.source());\n        var newName = fileName.replace(/(.js|.css)$/, '.' + hash + '$1');\n        hashFiles.push({\n          originName: fileName,\n          hashName: newName\n        });\n        if (file.emitted) {\n          fs.rename(file.existsAt, file.existsAt.replace(fileName, newName));\n        }   \n      } \n      else if (/\\.html$/.test(fileName)) {\n        \n        htmlFiles.push(fileName);\n      }\n    });\n\n    htmlFiles.forEach(function(fileName) {\n      var file = assets[fileName];\n      var contents = file.source();\n    \n      hashFiles.forEach(function(item) {\n        contents = contents.replace(item.originName, item.hashName);\n      });\n      fs.writeFile(file.existsAt, contents, 'utf-8');\n    });\n  });\n};\n\nmodule.exports = RenamePlugin;"
+    }
+  ]
+}

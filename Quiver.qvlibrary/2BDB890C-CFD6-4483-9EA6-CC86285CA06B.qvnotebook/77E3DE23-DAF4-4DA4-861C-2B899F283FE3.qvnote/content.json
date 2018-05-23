@@ -1,0 +1,9 @@
+{
+  "title": "GraphQL or RESTful",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "#### rest\n- 核心理念在于资源 讲究RESTful 接口操作单一资源"
+    }
+  ]
+}

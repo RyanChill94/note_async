@@ -1,0 +1,10 @@
+{
+  "title": "HashedModuleIdsPlugin.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/*\n    MIT License http://www.opensource.org/licenses/mit-license.php\n    Author Tobias Koppers @sokra\n*/\nfunction HashedModuleIdsPlugin(options) {\n    this.options = options || {};\n    this.options.hashFunction = this.options.hashFunction || \"md5\";\n    this.options.hashDigest = this.options.hashDigest || \"base64\";\n    this.options.hashDigestLength = this.options.hashDigestLength || 4;\n}\nmodule.exports = HashedModuleIdsPlugin;\nHashedModuleIdsPlugin.prototype.apply = function(compiler) {\n    var options = this.options;\n    compiler.plugin(\"compilation\", function(compilation) {\n        var usedIds = {};\n        compilation.plugin(\"before-module-ids\", function(modules) {\n            modules.forEach(function(module) {\n                if(module.id === null && module.libIdent) {\n                    var id = module.libIdent({\n                        context: this.options.context || compiler.options.context\n                    });\n                    var hash = require(\"crypto\").createHash(options.hashFunction);\n                    hash.update(id);\n                    id = hash.digest(options.hashDigest);\n                    var len = options.hashDigestLength;\n                    while(usedIds[id.substr(0, len)])\n                        len++;\n                    module.id = id.substr(0, len);\n                    usedIds[module.id] = true;\n                }\n            }, this);\n        }.bind(this));\n    }.bind(this));\n};\n"
+    }
+  ]
+}

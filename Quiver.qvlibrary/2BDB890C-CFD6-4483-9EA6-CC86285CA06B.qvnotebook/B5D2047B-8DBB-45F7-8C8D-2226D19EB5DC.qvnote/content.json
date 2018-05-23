@@ -1,0 +1,21 @@
+{
+  "title": "Webpack",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 4x 版本中 webpack 命令行功能被单独移除到 webapck-cli 包中<div><br></div><div style=\"orphans: 2; widows: 2;\">2. webpack 4 中引入 development production none 三种模式 如在打包的时候回出现warning 同时默认值是production</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">3 3.x node_modules/.bin/webpack app/main.js public/bundle.js&nbsp;</div><div style=\"orphans: 2; widows: 2;\">&nbsp; 4.x webpack-cli app/main.js -o public/bundle.js &nbsp;</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">4. Webpack-dev-server 新版 3.1.4 并不兼容 &nbsp;webpack3.x</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">5. 修改完 webpack.config.js 需要重启</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">6. Webapck4.x 约定如果没有指定入口文件 则为 src/index.js 出口地址为 build/main.js</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">7. 4.x 版本移除了commonChunkPlugin &nbsp;webpack-html-plugins 需要更新 fork分支</div><div style=\"orphans: 2; widows: 2;\"><br></div><div style=\"orphans: 2; widows: 2;\">8. Cross-env package 解决 不同bash 类Unix Windows 设置环境变量不一致的问题</div><div style=\"orphans: 2; widows: 2;\">&nbsp; &nbsp;Usage: ’cross-env NODE_ENV=production '</div>"
+    },
+    {
+      "type": "text",
+      "data": "Q<div>1. webpack 怎么自动找到配置文件 webpack.config.js ？</div><div><br></div><div>2. Webpack-dev-server 的 baseContent 到底是什么鬼</div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    }
+  ]
+}

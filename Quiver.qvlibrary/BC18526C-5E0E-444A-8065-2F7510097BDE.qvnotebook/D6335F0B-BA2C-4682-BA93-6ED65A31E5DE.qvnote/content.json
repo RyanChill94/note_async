@@ -1,0 +1,10 @@
+{
+  "title": "webpack.dll.config.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const webpack = require('webpack');\nconst path = require('path');\nconst UglifyJsParallelPlugin = require('webpack-uglify-parallel');\nconst os = require('os');\nconst pkg = require(\"../package.json\");\nvar UglifyJSPlugin = require('uglifyjs-webpack-plugin');\n\nconst vendors = ['react', 'react-dom', 'react-router-dom',\n        'redux', 'react-redux', 'redux-thunk',\"babel-polyfill\"] ;\n\nmodule.exports = {\n    context: __dirname,\n    output: {\n        path: path.join(__dirname, 'build'),\n        filename: '[name].[chunkhash:8].js',\n        library: '[name]_[chunkhash:8]',\n\n        // filename: '[name].dll.js',\n        // library: '[name]_[hash]',\n    },\n    entry:  {\n        \"vendor\": vendors,\n    },\n    plugins: [\n        // new UglifyJsParallelPlugin({\n        //     workers: os.cpus().length,\n        //     mangle: true,\n        //     exclude: /\\.min\\.js$/,\n        //     output: { comments: false },\n        //     compressor: {\n        //         warnings: false,\n        //         drop_console: true,\n        //         drop_debugger: true\n        //     }\n        // }),\n        // new UglifyJSPlugin({\n        //   uglifyOptions: {\n        //     compress: {\n        //       drop_console: true\n        //     }\n        //   }\n        // }),\n        new webpack.DllPlugin({\n            path:  path.join(__dirname, 'build', '[name]-manifest.json'),\n            name: '[name]_[hash]',\n        })\n    ]\n};"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "longShadow",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "#### 原理\n使用多个textshadow进行叠加\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "sass\n\n@function longshadow($color_a,$color_b,$stepnum, $opacity: 1){\n\n  $gradient_steps: null;\n\n  @for $i from 1 through $stepnum {\n\n    $weight: ( ( $i - 1 ) / $stepnum ) * 100;\n\n    $colour_mix: mix($color_b, rgba($color_a, $opacity), $weight);\n\n    $seperator: null;\n\n    @if($i != $stepnum){\n      $seperator: #{','};\n    }\n\n    $gradient_steps: append( #{$gradient_steps}, #{$i}px #{$i}px $colour_mix $seperator );\n\n  }\n\n  @return $gradient_steps;\n\n}\n\n\nuseage\n\n@include text-shadow(longshadow(darken($bg,30%),$bg,50, 0.5))"
+    }
+  ]
+}
