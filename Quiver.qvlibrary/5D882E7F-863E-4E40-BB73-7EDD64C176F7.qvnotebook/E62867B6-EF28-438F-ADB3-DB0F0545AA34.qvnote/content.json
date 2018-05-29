@@ -1,0 +1,14 @@
+{
+  "title": "isNumber.js",
+  "cells": [
+    {
+      "type": "text",
+      "data": "//&nbsp;<a href=\"https://github.com/jonschlinkert/is-number/blob/master/index.js\">https://github.com/jonschlinkert/is-number/blob/master/index.js</a>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "module.exports = function isNumber(num) {\n  var number = +num;\n\n  if ((number - number) !== 0) {\n    // Discard Infinity and NaN\n    return false;\n  }\n\n  if (number === num) {\n    return true;\n  }\n\n  if (typeof num === 'string') {\n    // String parsed, both a non-empty whitespace string and an empty string\n    // will have been coerced to 0. If 0 trim the string and see if its empty.\n    if (number === 0 && num.trim() === '') {\n      return false;\n    }\n    return true;\n  }\n  return false;\n};"
+    }
+  ]
+}
