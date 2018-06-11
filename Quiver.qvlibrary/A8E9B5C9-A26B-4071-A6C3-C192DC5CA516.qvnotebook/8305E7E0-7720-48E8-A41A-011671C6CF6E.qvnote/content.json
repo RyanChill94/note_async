@@ -1,0 +1,9 @@
+{
+  "title": "Redux_best_practise.md",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>aim: 方便开发 结构清晰 减少冗余代码 抽取公共</div>1. 项目结构？<div>&nbsp; DUCKS？ 将actions reducer 以及container 写在同一个文件中</div><div><br></div><div>2.redux-thunk 的正确用法？</div><div><br></div><div>3.<span style=\"color: rgb(51, 51, 51); font-family: &quot;-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif&quot;; font-size: 15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">最重要最核心的原则是像设计数据库一样设计State</span></div>"
+    }
+  ]
+}

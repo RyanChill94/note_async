@@ -1,0 +1,9 @@
+{
+  "title": "API跨域",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>1、如何跨域调用API<br><div><p>2、如何安全的开放API<br>首先第一个问题，得分调用方式，如果只是简单的request请求获取数据那根本不需要设置什么，而如果是jsonp的方式去调用，在跨域的情况需要设置Access-Control-Allow-Origin: <br>但即使设置了Access-Control-Allow-Origin只是影响了jsonp的调用，不是说数据就是安全的，如果我需要爬取API的数据，我完全可以抓包，写个脚本直接请求，那么Access-Control-Allow-Origin的设置是对爬取完全没影响和限制的。</p><p>其次，第二个问题，如何安全的开放API。<br>首先需要定义这个API的用途和开放程度，如果开放的是无所谓的数据，那么完全可以不做任何限制，只需要在同个ip的请求上，也就是反爬取上进行限制，避免恶意爬取影响API服务的稳定性。<br>如果这是一个不能对外开放，只允许那个APP调用的API，那么就有必要进行一些限制，比如：<br>1、请求的时间有效性<br>2、验证token<br>3、验证ip<br>4、验证来源<br>等等<br>这种校验需要是不可逆，比如：<br>请求接口需要传入几个参数：<br>{<br>    'name': 用户名,<br>    ‘key: 加密的验证key,<br>    ‘timestamp’: 时间戳,<br>}<br>三个参数中，name是已知固定的<br>key可以是由name+secret+timestamp来通过不可逆加密生成，比如先加上特定字段相连，再md5加密（也可以是其他加密方式，尽量采用不可逆的加密）<br>timestamp:请求接口时的时间戳</p><p>secret应该是不向外透露的<br>服务端的验证应该是这样的：<br>1、验证timestamp与服务接到请求的时间相差是否在指定范围内，比如5分钟内<br>2、验证拿已知的secret+接口传的name+timestamp采用相同加密方式加密，看看生成的key是否与接口传的相同<br>3、验证用户名是否在指定允许使用API服务的用户列表内<br>还可以校验请求的header等等</p><br>通过类似以上的方式，排除接口服务本身外的其他因素，接口的请求验证就是相对安全的</div></div>"
+    }
+  ]
+}
