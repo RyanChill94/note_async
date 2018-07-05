@@ -1,0 +1,9 @@
+{
+  "title": "Base64.js",
+  "cells": [
+    {
+      "type": "text",
+      "data": "window.atob() // decode<div>window.btoa() // encode</div>"
+    }
+  ]
+}

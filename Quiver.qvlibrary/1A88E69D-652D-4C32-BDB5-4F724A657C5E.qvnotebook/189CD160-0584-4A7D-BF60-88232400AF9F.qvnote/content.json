@@ -1,0 +1,10 @@
+{
+  "title": "add_border.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "[].forEach.call($$(\"*\"), (a) => {\n  a.style.outline = \"1px solid #\"+(~~(Math.random()*(1<<24))).toString(16)\n})"
+    }
+  ]
+}

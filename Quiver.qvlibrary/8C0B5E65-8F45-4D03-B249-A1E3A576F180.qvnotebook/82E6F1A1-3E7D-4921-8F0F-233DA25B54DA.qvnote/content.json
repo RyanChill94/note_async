@@ -1,0 +1,24 @@
+{
+  "title": "render props",
+  "cells": [
+    {
+      "type": "text",
+      "data": "规避mixin 和 HOC的缺点"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// hoc\nfunction withMouse(Component) {\n  return class extends React.Component {\n    render() {\n      return (\n        <Mouse render={mouse => (\n          <Component {...this.props} mouse={mouse} />\n        )}/>\n      );\n    }\n  }\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// render props\nclass Cat extends React.Component {\n  render() {\n    const mouse = this.props.mouse;\n    return (\n      <img src=\"/cat.jpg\" style={{ position: 'absolute', left: mouse.x, top: mouse.y }} />\n    );\n  }\n}\n\nclass Mouse extends React.Component {\n  constructor(props) {\n    super(props);\n    this.handleMouseMove = this.handleMouseMove.bind(this);\n    this.state = { x: 0, y: 0 };\n  }\n\n  handleMouseMove(event) {\n    this.setState({\n      x: event.clientX,\n      y: event.clientY\n    });\n  }\n\n  render() {\n    return (\n      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>\n\n        {/*\n          Instead of providing a static representation of what <Mouse> renders,\n          use the `render` prop to dynamically determine what to render.\n        */}\n        {this.props.render(this.state)} //使用了传入的render属性 this.state作为参数传入【mouse】\n      </div>\n    );\n  }\n}\n\nclass MouseTracker extends React.Component {\n  render() {\n    return (\n      <div>\n        <h1>Move the mouse around!</h1>\n        <Mouse render={mouse => (\n          <Cat mouse={mouse} />\n        )}/>\n      </div>\n    );\n  }\n}\n\n// also work\n<Mouse children={mouse => (\n  <p>The mouse position is {mouse.x}, {mouse.y}</p>\n)}/>\n\n<Mouse>\n{mouse => (<p> this mouse position is {mouse.x} ,{mouse.y}</p>)\n</Mouse>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//在pureComponent 中使用的时候\nclass Mouse extends React.PureComponent {\n  // Same implementation as above...\n}\n\nclass MouseTracker extends React.Component {\n  render() {\n    return (\n      <div>\n        <h1>Move the mouse around!</h1>\n\n        {/*\n          This is bad! The value of the `render` prop will\n          be different on each render.\n        */}\n        <Mouse render={mouse => (\n          <Cat mouse={mouse} />\n        )}/>\n      </div>\n    );\n  }\n}\n\n\nclass MouseTracker extends React.Component {\n  constructor(props) {\n    super(props);\n\n    // This binding ensures that `this.renderTheCat` always refers\n    // to the *same* function when we use it in render.\n    this.renderTheCat = this.renderTheCat.bind(this);\n  }\n\n  renderTheCat(mouse) {\n    return <Cat mouse={mouse} />;\n  }\n\n  render() {\n    return (\n      <div>\n        <h1>Move the mouse around!</h1>\n        <Mouse render={this.renderTheCat} />\n      </div>\n    );\n  }\n}"
+    }
+  ]
+}

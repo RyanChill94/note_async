@@ -1,0 +1,24 @@
+{
+  "title": "React-context.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Component A\nclass A extends React.Component {\n// add the following method\n  getChildContext() {\n    return {\n      user: this.props.user\n    }\n  }\n  \n  render() {\n    return <div>{this.props.children}</div>\n  }\n}\n// add the following property\nA.childContextTypes = {\n  user: React.PropTypes.object.isRequired\n}\n\n\n// Component D\nclass D extends React.Component {\n  render() {\n    return <div>{this.context.user.name}</div>\n  }\n}\n// add the following property\nD.contextTypes = {\n  user: React.PropTypes.object.isRequired\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//在lifeCycle中使用context\nvoid componentWillReceiveProps(\n  object nextProps, object nextContext\n)\n\nboolean shouldComponentUpdate(\n  object nextProps, object nextState, object nextContext\n)\n\nvoid componentWillUpdate(\n  object nextProps, object nextState, object nextContext\n)\n\nvoid componentDidUpdate(\n  object prevProps, object prevState, object prevContext\n)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// stateless component \nfunction D(props, context) {\n  return (\n    <div>{this.context.user.name}</div>\n  );\n}\nD.contextTypes = {\n  user: React.PropTypes.object.isRequired\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

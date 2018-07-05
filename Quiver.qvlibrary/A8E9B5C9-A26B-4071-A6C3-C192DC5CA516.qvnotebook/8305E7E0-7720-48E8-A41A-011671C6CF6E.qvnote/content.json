@@ -2,8 +2,26 @@
   "title": "Redux_best_practise.md",
   "cells": [
     {
+      "type": "markdown",
+      "data": "###aim: 方便开发 结构清晰 减少冗余代码 抽取公共\n\n1. 项目结构？\n\n DUCKS？ 将actions reducer 以及container 写在同一个文件中‘\n \n ```js\n // homepage/types.js\n const add = '@homepage/home/add'\n const sub = '@homepage/home/sub'\n \n // realtime/types.js\n const real_add = '@realtime/deal/add'\n const real_sub = '@realtime/deal/sub'\n \n exports {\n    real_add,\n    real_sub\n }\n \n // reducer\n import * as types form './realtime/types'\n \n switch(){\n    case types.real_add:{\n      // do something\n    };\n    case types.real_sub:{\n      // do anotherthing\n    }\n    \n }\n \n \n ```\n \n container 其实可以不用存在\n 将 selector 与 connect()(App) 写在同一个文件中\n \n\n2. redux-thunk 的正确用法？\n\n```js\n dispatch(actions.abc()).then(() => {\n    Dispatch({type:'ad', payload:[]}) \n})\n```\n\n3. 最重要最核心的原则是像设计数据库一样设计State\n\n4. 什么样的数据应该放进store中？\n\n5. store本质上是一个大js object 会有性能问题吗"
+    },
+    {
       "type": "text",
-      "data": "<div>aim: 方便开发 结构清晰 减少冗余代码 抽取公共</div>1. 项目结构？<div>&nbsp; DUCKS？ 将actions reducer 以及container 写在同一个文件中</div><div><br></div><div>2.redux-thunk 的正确用法？</div><div><br></div><div>3.<span style=\"color: rgb(51, 51, 51); font-family: &quot;-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif&quot;; font-size: 15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">最重要最核心的原则是像设计数据库一样设计State</span></div>"
+      "data": "<div>Think</div><div>1. 在存储和访问状态时使用索引和选择器</div><div>2. 把数据对象，对数据对象的修改以及UI状态分开</div><div>3. 在单页应用的不同页面间共享数据,已经以及何时不该这么做</div><div>4. 在状态中的不同节点使用通用的reducer函数</div><div>5. 连接react 组件于 redux 状态的的最佳实践</div><div><br></div><div><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 一些最佳实践\n//区分标准状态与视图状态和编辑状态\n标准状态指的是原始数据\nexample:\n编辑的储存方式\n// bad\n{\n \"usersById\": {\n    123: {\n      id: 123,\n      name: \"Jane Doe\",\n      email: \"jdoe@example.com\",\n      phone: \"555-555-5555\",\n      ...\n      isEditing: true, // 一旦用户取消编辑 原始数据已经没法复原，只能重新生成新的数据\n    },\n    ...\n  }\n}\n\n// good\n{\n \"usersById\": {\n    123: {\n      id: 123,\n      name: \"Jane Doe\",\n      email: \"jdoe@example.com\",\n      phone: \"555-555-5555\",\n      ...\n    },\n    ...\n  },\n  \"editingUsersById\": {\n    123: {\n      id: 123,\n      name: \"Jane Smith\",\n      email: \"jsmith@example.com\",\n      phone: \"555-555-5555\",\n    }\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// reducer 生成器工厂\nconst initialPaginationState = {\n  startElement: 0,\n  pageSize: 100,\n  count: 0,\n};\nconst paginationReducerFor = (prefix) => {\n  const paginationReducer = (state = initialPaginationState, action) => {\n    const { type, payload } = action;\n    switch (type) {\n      case prefix + types.SET_PAGINATION:\n        const {\n          startElement,\n          pageSize,\n          count,\n        } = payload;\n        return Object.assign({}, state, {\n          startElement,\n          pageSize,\n          count,\n        });\n      default:\n        return state;\n    }\n  };\n  return paginationReducer;\n};\n// 使用示例\nconst usersReducer = combineReducers({\n  usersData: usersDataReducer,\n  paginationData: paginationReducerFor('USERS_'),\n});\nconst domainsReducer = combineReducers({\n  domainsData: domainsDataReducer,\n  paginationData: paginationReducerFor('DOMAINS_'),\n});\n\n// action 生成器工厂\nconst setPaginationFor = (prefix) => {\n  const setPagination = (response) => {\n    const {\n      startElement,\n      pageSize,\n      count,\n    } = response;\n    return {\n      type: prefix + types.SET_PAGINATION,\n      payload: {\n        startElement,\n        pageSize,\n        count,\n      },\n    };\n  };\n  return setPagination;\n};\n// 使用示例\nconst setUsersPagination = setPaginationFor('USERS_');\nconst setDomainsPagination = setPaginationFor('DOMAINS_');"
     }
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "title": "Understand_new_operator.js",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<ol style=\"margin: 0px 0px 1.75em; color: rgb(93, 104, 111); font-family: Merriweather, serif; font-size: 15px; font-variant-ligatures: normal; letter-spacing: 0.15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><li>var o = new Object();</li><li>o.<code style=\"display: inline-block; font-family: &quot;Open Sans&quot;; background-color: rgb(245, 245, 245); padding: 0px 10px; background-position: initial initial; background-repeat: initial initial;\">__proto__</code>&nbsp;= A.prototype;//这里还记得之那个function里面的默认的属性么?</li><li>A.call(o)//由于这里this是指向o,可以把什么this.name/getName绑定到o上.</li><li>把这个o返回给a;//完成var a = new A()的过程.</li></ol>"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(93, 104, 111); font-family: Merriweather, serif; font-size: 15px; font-variant-ligatures: normal; letter-spacing: 0.15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">这里注意下,上面所谓的第4步其实是一个简化的说法.真正的过程是在第3步之后,如果发现A返回是一个Object类型(非primitive类型,即非string,boolean,number,null,undefined类型就是Object类型),则直接返回A的返回值,否则把第1步new的Object返回出去.(默认情况下,JS中函数默认返回值是undefined)</span><br style=\"color: rgb(93, 104, 111); font-family: Merriweather, serif; font-size: 15px; font-variant-ligatures: normal; letter-spacing: 0.15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><span style=\"color: rgb(93, 104, 111); font-family: Merriweather, serif; font-size: 15px; font-variant-ligatures: normal; letter-spacing: 0.15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">举个例子</span>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function A(name){\n\tthis.name = name;\n\tthis.getName = function(){\n\t\tconsole.log(this.name);\n\t}\n\n\tvar b = 'test';\n\tconsole.log(b);\n\n\treturn {};\n}\n\nvar a = new A('testa');//{}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var o = new Foo();\n//JavaScript 实际上执行的是：\nvar o = new Object();\no.[[Prototype]] = Foo.prototype;\nFoo.call(o);"
+    }
+  ]
+}

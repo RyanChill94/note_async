@@ -1,0 +1,9 @@
+{
+  "title": "cookie",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. httpOnly 的 cookie 使 document.cookie 是取不出来的"
+    }
+  ]
+}
