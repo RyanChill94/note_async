@@ -1,0 +1,23 @@
+{
+  "title": "react_dynamic_import.js",
+  "cells": [
+    {
+      "type": "text",
+      "data": "stage-3 import语法<br>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import(‘./urlToComponent’).then((mod)=>{\n  // Mod is the chosen modules instance\n  \n  // example \n  this.setState({\n    ComA:mod.default\n  })\n})\n\nconst { ComA } = this.state\n\nRender(){\n  <ComA />\n}"
+    },
+    {
+      "type": "text",
+      "data": "two way to make code spliting<div>1. router state</div><div>2. component state</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class DynamicImport extends from Component {\n  state = {\n    Componnet:null\n  }\n  \n  ComponentWillMount(){\n    this.props.load().then((mod)=>{\n      this.setState({\n        Component : mod.default\n      })\n    })\n  }\n  render(\n    const DynamaticComponent = this.state.Component;\n    return this.props.children(DynamaticCompoent)\n  )\n}\n\n\nconst Setting = {props} =>(\n  <DynamticComponent load={()=>{ import('./component/setting')}}>\n    {\n      (Component)=>(Component === null \n      ? \"Loading...\"\n      : <Component {...props} />\n    )\n      \n    \n  <DynamticComponent/>\n)"
+    }
+  ]
+}
