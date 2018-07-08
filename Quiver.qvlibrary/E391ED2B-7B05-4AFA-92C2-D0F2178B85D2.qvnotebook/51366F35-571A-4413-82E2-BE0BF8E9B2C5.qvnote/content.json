@@ -1,0 +1,18 @@
+{
+  "title": "数字转中文",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Q:<br class=\"Apple-interchange-newline\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">完成将&nbsp;</span><code style=\"box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13.5px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">toChineseNum</code><span style=\"color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">， 可以将数字转换成中文大写的表示，处理到万级别，例如&nbsp;</span><code style=\"box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13.5px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">toChineseNum(12345)</code><span style=\"color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">，返回&nbsp;</span><code style=\"box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13.5px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">一万二千三百四十五</code>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// code\nconst toChineseNum = (num) => {\n  const splitNum = num => {\n    return (num + '').replace(/^\\d+/, function (v) {\n        return v.replace(/\\d{1,4}(?=(\\d{4})+$)/g, '$&|');\n    });\n  }\n\n  const particalChange = num => {\n    if (isNaN(+num)) {\n        console.log(\"非法数字输入\")\n        return;\n    }\n    let str = \"\";\n    let numMap = \"零一二三四五六七八九十\".split(\"\");\n    let unitMap = \"千百十\".split(\"\");\n    unitMap.push(\"\")\n    let numArr = String(num).split(\"\");\n    for (let i = 0; i < numArr.length; i++) {\n        if(numMap[numArr[i-1]] == '零' && numMap[numArr[i]] == \"零\") continue;\n        str = str + numMap[numArr[i]] + (numMap[numArr[i]] === \"零\" ? \"\" : unitMap[4 - numArr.length + i]);\n    }\n    if(str.length > 1 && str.charAt(str.length - 1) === \"零\") return str.slice(0,str.length - 1)\n\n    return str;\n\n}\n    let result = \"\";\n    let numGroup = splitNum(num).split(\"|\");\n    let bigUnit = \"亿万\".split(\"\");\n    bigUnit.push(\"\");\n    numGroup.forEach((g,i)=>{\n        result += particalChange(g) + bigUnit[3 - numGroup.length + i];\n    })\n\n    return result;\n}"
+    },
+    {
+      "type": "text",
+      "data": "some point<div>1. Array.prototype.push 返回值是数组的长度的</div><div>2. 零的分割 多个零的情况</div><div>3. 零宽断言 不包括最后四个数字结尾的匹配组</div>"
+    }
+  ]
+}
