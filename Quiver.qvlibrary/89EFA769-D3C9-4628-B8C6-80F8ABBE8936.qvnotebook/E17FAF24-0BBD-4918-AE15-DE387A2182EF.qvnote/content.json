@@ -1,0 +1,10 @@
+{
+  "title": "Is.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function is(data) { \n  return function(type) { \n    return Object.prototype.toString.call(data) === `[object ${type}]`; \n  } \n}\n\n//usage\nconst abc = 'aaa'\nis(abc)(String)"
+    }
+  ]
+}
