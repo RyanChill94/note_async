@@ -1,0 +1,10 @@
+{
+  "title": "shallowEqual.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function shallowEqual(prev, next){\n  if(prev == next) return true;\n  const prevKeys = Object.keys(prev);\n  const nextKeys = Object.keys(next);\n  \n  // 如果长度不同就直接不比较\n  if (prevKeys.length !== nextKeys) return false;\n  \n  return prevKeys.every((v,i)=>{\n    return prevKeys.hasOwnProperty(key) && prev[key] === next[key];\n  })\n}"
+    }
+  ]
+}

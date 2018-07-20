@@ -1,0 +1,10 @@
+{
+  "title": "camelCase.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// \\w 包括 a-z A-Z 0-9\nconst camelCaseCss = str => {\n  return str.replace(/-([a-z])/g,($1. $2)=> $1.toUpperCase())\n}"
+    }
+  ]
+}

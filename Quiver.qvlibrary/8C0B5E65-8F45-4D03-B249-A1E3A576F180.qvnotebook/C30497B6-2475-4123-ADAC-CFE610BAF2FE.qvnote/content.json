@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "// 可以不适用switch case的语法来完成reducer\nexport const todos = createReducer([], {\n  [ActionTypes.ADD_TODO](state,action){\n    let text = action.text.trim();\n    return [...state,text];\n  }\n})\n\nfunction createReducer(initState, handlers) {\n  return function reducer(state = initState, action){\n    if(handlers.hasOwnProperty(action.type)){\n      return handlers[action.type](state, action)\n    }else{\n      return state;\n    }\n  }\n}\n"
+      "data": "// 可以不使用switch case的语法来完成reducer\nexport const todos = createReducer([], {\n  [ActionTypes.ADD_TODO](state,action){\n    let text = action.text.trim();\n    return [...state,text];\n  }\n})\n\nfunction createReducer(initState, handlers) {\n  return function reducer(state = initState, action){\n    if(handlers.hasOwnProperty(action.type)){\n      return handlers[action.type](state, action)\n    }else{\n      return state;\n    }\n  }\n}\n"
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "title": "React_memo",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. Redux 可以帮助父组件实现子组件的监听<div>子组件dispath 的事件如果改变的 state 父组件页connnet了 就可以出发父组件的render</div><div><br></div><div>2</div>"
+    }
+  ]
+}

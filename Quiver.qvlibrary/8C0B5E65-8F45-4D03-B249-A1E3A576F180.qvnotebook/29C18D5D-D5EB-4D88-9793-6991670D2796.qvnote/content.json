@@ -1,0 +1,13 @@
+{
+  "title": "React_Top_Level_API",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. React.createElement<br>"
+    },
+    {
+      "type": "text",
+      "data": "2. React.cloneElement<div><div>克隆jsx 保留ref 不会丢失ref’</div></div><div><pre class=\"gatsby-code-jsx\" style=\"margin: 1rem; padding: 0px; box-sizing: inherit; font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 20px; white-space: pre-wrap; word-break: break-word; color: rgb(255, 255, 255); font-variant-ligatures: normal; orphans: 2; widows: 2; height: auto !important;\"><code style=\"box-sizing: inherit; font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 1em;\">React<span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">.</span><span class=\"token function\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(121, 182, 242);\">createElement</span><span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">(</span>\n  type<span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">,</span>\n  <span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">[</span>props<span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">]</span><span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">,</span>\n  <span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">[</span><span class=\"token operator\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(215, 222, 234);\">...</span>children<span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">]</span>\n<span class=\"token punctuation\" style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(95, 179, 179);\">)</span></code></pre></div><div><br></div>"
+    }
+  ]
+}

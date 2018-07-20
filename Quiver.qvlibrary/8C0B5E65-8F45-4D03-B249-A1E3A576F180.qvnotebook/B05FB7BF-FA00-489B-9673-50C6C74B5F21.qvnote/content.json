@@ -1,0 +1,9 @@
+{
+  "title": "Redux object compare",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. redux 之所以可以比较出两个对象的差异，是因为使用combine Reducer 在reducer中是生成了多个对象，而这些对象可能在某个action 中并没有重新生成 ，导致 this.props 和 nextProps 中的对象指向的是同一个地址"
+    }
+  ]
+}

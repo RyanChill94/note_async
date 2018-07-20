@@ -1,0 +1,10 @@
+{
+  "title": "object_compare.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/*\n * 1. ===\n * 2. deepEqual\n * 3. shallowEqual // 只比较一层\n * 4. jsonEqual（JSON.stringify）\n */\n\nuser1  = {\n    name: \"John\",\n    address: {\n        line1: \"55 Green Park Road\",\n        line2: \"Purple Valley\" \n    }\n}\n\nuser2 = {\n    name: \"John\",\n    address: user1.address\n}\n\nuser3  = {\n    name: \"John\",\n    address: {\n        line1: \"55 Green Park Road\",\n        line2: \"Purple Valley\" \n    }\n}\n\n\nconsole.log(\"user1 === user2\", user1 === user2); //false\nconsole.log(\"shallowEqual(user1, user2)\", shallowEqual(user1, user2));  // true\nconsole.log(\"deepEqual(user1, user2)\", deepEqual(user1, user2));  // true\n\nconsole.log(\"user1 === user2\", user1 === user3); //false\nconsole.log(\"shallowEqual(user1, user2)\", shallowEqual(user1, user3));  // false\nconsole.log(\"deepEqual(user1, user2)\", deepEqual(user1, user3));  // true\n\n\nvar a = JSON.stringify({a:1,b:function AA(){return \"a\"}})\nconsole.log(a); // {\"a\":1}\nconsole.log(JSON.parse(a)) // {a: 1} 丢失函数"
+    }
+  ]
+}

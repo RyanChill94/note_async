@@ -1,0 +1,13 @@
+{
+  "title": "React mind",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. UI = f(DATA)&nbsp;数据驱动UI<div>2. everything is component</div><div>3. 可以通过 ref 获得dom 节点，但是这种做法违背了react的设计理念</div><div>4. 声明式编程</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": "V16&nbsp;<div>渲染方式 fiber</div>"
+    }
+  ]
+}
