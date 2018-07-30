@@ -1,0 +1,15 @@
+{
+  "title": "React Advanced techniques",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 1. props 里面传递组件\nreact router 中传递 layout\n\nclass Layout extends React.Component {\n  render(){\n    return (\n      <div>\n        <section className=\"section-left\"> {props.left}</section>\n        <section className=\"section-right\"> {props.right}</section>\n      </div>\n    )\n  }\n}\n\nimport LeftComponent from 'path/to/Left'\nimport RightComponent from 'path/to/Left'\n\nclass App extends React.Component{\n  render(){\n    return(\n      <Layout\n        left={ <leftComponent /> }\n        rigth={ <rightComponent /> }\n      />\n    )\n  }\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "2"
+    }
+  ]
+}
