@@ -1,0 +1,17 @@
+{
+  "title": "Browser_render_mono",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/052DEDC2F3F001461B00D1772744FEF2.jpg\" alt=\"preview\" width=\"865\" height=\"594\">"
+    },
+    {
+      "type": "text",
+      "data": "<p style=\"margin: 1em 0px; color: rgb(26, 26, 26); font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><font face=\"Menlo\">当渲染首屏时，浏览器分别解析 HTML 与 CSS 文件，生成文档对象模型（DOM）与 样式表对象模型（CSSOM）；合并 DOM 与 CSSOM 成为渲染树（Render Tree）；计算样式（ Style）；计算每个节点在屏幕中的精确位置与大小（Layout）；将渲染树按照上一步计算出的位置绘制到图层上（Paint）；渲染引擎合成所有<a href=\"https://link.zhihu.com/?target=https%3A//baike.baidu.com/item/%25E5%259B%25BE%25E5%25B1%2582\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\" data-za-detail-view-id=\"1043\" style=\"color: inherit; text-decoration: none; cursor: pointer; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: gray;\">图层</a>最终使人眼可见（Composite Layers）。</font></p><p style=\"margin: 1em 0px; color: rgb(26, 26, 26); font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><font face=\"Menlo\">如果改变页面布局，则是先通过 JS 更新 DOM 再经历计算样式到合成图像这个过程。如果仅仅是非几何变化（颜色、visibility、transform），则可以跳过布局步骤。</font></p>"
+    },
+    {
+      "type": "text",
+      "data": "重排重绘<div><br></div><div>1.<br><div><br></div><div><img src=\"quiver-image-url/B41A163FF451CC8DC7D79B369038F845.jpg\" width=\"658\" height=\"405\"></div><div><br></div><div>2. 重排的步骤包括 Recalucate Style 、 Layout 、 Update Layout Tree</div></div><div>&nbsp; &nbsp;重绘的步骤包括 Paint Composite Layers</div><div><br></div>"
+    }
+  ]
+}

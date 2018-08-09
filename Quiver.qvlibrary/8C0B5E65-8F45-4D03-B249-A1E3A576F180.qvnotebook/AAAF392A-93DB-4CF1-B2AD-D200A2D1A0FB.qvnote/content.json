@@ -1,0 +1,9 @@
+{
+  "title": "React v16 new-lifeCycle",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div><br></div><div>类别</div><div>1. 装配</div><div>2. 更新</div><div>3. 卸载</div><div>4. 错误处理</div><div><br></div>componentWillReceiveProps(np) =&gt; static getDeriveStateFromProps<div>willUpdate =&gt; 使用Derive实现</div><div>willMount =&gt; 使用Derive实现<br><div>componentWillUnmount =&gt; 用constructor代替</div><div>componentDidCatch</div></div>"
+    }
+  ]
+}

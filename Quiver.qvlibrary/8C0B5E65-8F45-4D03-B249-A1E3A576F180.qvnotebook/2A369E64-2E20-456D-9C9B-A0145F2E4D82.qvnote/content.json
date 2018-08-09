@@ -3,7 +3,7 @@
   "cells": [
     {
       "type": "text",
-      "data": "1. Redux 可以帮助父组件实现子组件的监听<div>子组件dispath 的事件如果改变的 state 父组件页connnet了 就可以出发父组件的render</div><div><br></div><div>2</div>"
+      "data": "1. Redux 可以帮助父组件实现子组件的监听<div>子组件dispath 的事件如果改变的 state 父组件页connnet了 就可以出发父组件的render</div><div><br></div><div>2 一些值得注意的优化点</div><div>&nbsp;- 切分组件来进行优化</div><div>&nbsp;- 正确使用scu</div><div>&nbsp;- 使用功能recompose</div><div>&nbsp; &nbsp; 用HOC来包裹函数式组件 获得相应的功能加强</div><div>&nbsp;- Redux 替换state中的对象 而不是更新</div><div>&nbsp;- reselect&nbsp;</div>"
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "title": "Console-color.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const COLORS = {\n    blue: ['#1E88E5', '#90CAF9'],\n    brown: ['#6D4C41', '#D7CCC8'],\n    gray: ['#212121', '#BDBDBD'],\n    green: ['#388E3C', '#A5D6A7'],\n    red: ['#E53935', '#EF9A9A'],\n    orange: ['#F4511E', '#FFAB91'],\n    purple: ['#8E24AA', '#E1BEE7'],\n    yellow: ['#FFD600', '#FFF59D'],\n}\n\nconst print = Object.entries(COLORS).reduce(\n    (api, [name, colors]) => ({\n        [name]: (shortLabel, longLabel, optionalSuffix) => {\n            console.log(\n                `%c${shortLabel}%c${longLabel}%c${optionalSuffix}`,\n                `background-color: ${colors[0]}; color: #fff; padding: 2px 4px; font-weight: bold;`,\n                `background-color: ${colors[1]}; color: #000; padding: 2px 4px;`,\n                optionalSuffix !== ''\n                    ? `background-color: ${colors[0]}; color: #fff; padding: 2px 4px; font-weight: bold;`\n                    : '',\n            )\n        },\n        ...api\n    }), {}\n);\n\n\nprint.yellow(\"test\", \"this is a long long long story about me\", '100%')"
+    }
+  ]
+}
