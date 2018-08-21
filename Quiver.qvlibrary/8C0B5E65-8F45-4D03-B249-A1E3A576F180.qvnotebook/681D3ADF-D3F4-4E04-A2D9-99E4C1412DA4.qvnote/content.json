@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "function makeActionCreator(type, ...argNames) {\n  return function(...args) {\n    let action = { type }\n    argNames.forEach((arg, index) => {\n      action[argNames[index]] = args[index]\n    })\n    return action\n  }\n}\n\nconst ADD_TODO = 'ADD_TODO'\nconst EDIT_TODO = 'EDIT_TODO'\nconst REMOVE_TODO = 'REMOVE_TODO'\n\nexport const addTodo = makeActionCreator(ADD_TODO, 'todo')\nexport const editTodo = makeActionCreator(EDIT_TODO, 'id', 'todo')\nexport const removeTodo = makeActionCreator(REMOVE_TODO, 'id')\n\n\nfunction makeActionCreator(type,..argNames) {\n  return functino (...agrs){\n    let action = { type };\n    argName.forEach( (arg,index) => {\n      action[argNames[index]] = args[index]\n    })\n    return action\n  }\n}"
+      "data": "const ADD_TODO = 'ADD_TODO'\nconst EDIT_TODO = 'EDIT_TODO'\nconst REMOVE_TODO = 'REMOVE_TODO'\n\nexport const addTodo = makeActionCreator(ADD_TODO, 'todo')\nexport const editTodo = makeActionCreator(EDIT_TODO, 'id', 'todo')\nexport const removeTodo = makeActionCreator(REMOVE_TODO, 'id')\n\n\nfunction makeActionCreator(type,..argNames) {\n  return functino (...agrs){\n    let action = { type };\n    argName.forEach( (arg,index) => {\n      action[argNames[index]] = args[index]\n    })\n    return action\n  }\n}"
     }
   ]
 }

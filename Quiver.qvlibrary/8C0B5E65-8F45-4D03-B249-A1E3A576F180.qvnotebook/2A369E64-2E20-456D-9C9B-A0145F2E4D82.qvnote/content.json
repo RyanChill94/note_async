@@ -3,7 +3,21 @@
   "cells": [
     {
       "type": "text",
-      "data": "1. Redux 可以帮助父组件实现子组件的监听<div>子组件dispath 的事件如果改变的 state 父组件页connnet了 就可以出发父组件的render</div><div><br></div><div>2 一些值得注意的优化点</div><div>&nbsp;- 切分组件来进行优化</div><div>&nbsp;- 正确使用scu</div><div>&nbsp;- 使用功能recompose</div><div>&nbsp; &nbsp; 用HOC来包裹函数式组件 获得相应的功能加强</div><div>&nbsp;- Redux 替换state中的对象 而不是更新</div><div>&nbsp;- reselect&nbsp;</div>"
+      "data": "1. Redux 可以帮助父组件实现子组件的监听<div>子组件dispath 的事件如果改变的 state 父组件页connnet了 就可以出发父组件的render</div><div><br></div><div>2 一些值得注意的优化点</div><div>&nbsp;- 切分组件来进行优化</div><div>&nbsp;- 正确使用scu</div><div>&nbsp;- 使用功能recompose</div><div>&nbsp; &nbsp; 用HOC来包裹函数式组件 获得相应的功能加强</div><div>&nbsp;- Redux 替换state中的对象 而不是更新</div><div>&nbsp;- reselect&nbsp;</div><div><br></div><div><br></div><div>3. 如何使多个页面去共用一个store</div><div><a href=\"https://segmentfault.com/a/1190000009540007\">https://segmentfault.com/a/1190000009540007</a><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const rootReducer = combineReducers({\n  user: userReducer,\n  product: productReducer,\n  //添加counterReducer\n  pageA: combineReducers({\n      counter: counterReducer,\n  }),\n  pageB: combineReducers({\n      counter1: counterReducer,\n      counter2: counterReducer,\n  })\n})"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import commonMiddlewares from './commonMiddlewares';\nimport commonReducers from './commonReducers';\n\nconst defaultConfig = {\n  pageReducers: {},\n  reducers: commonReducers,\n  middlewares: commonMiddlewares,\n};\n\nexport const createReduxStore = (config) => {\n  const finalConfig = {\n    ...defaultConfig,\n    ...config,\n  };\n\n  const { middlewares, reducers } = finalConfig;\n\n  const reducerFn = combineReducers({\n    ...reducers,\n  });\n\n  return applyMiddleware(\n    ...middlewares,\n  )(createStore)(reducerFn);\n};\n\nconst store = createReduxStore();\n\nconst withRedux = config => Comp => class WithRedux extends Component {\n  constructor(props) {\n    super(props);\n\n    if (config && config.pageReducers) {\n      store.replaceReducer(combineReducers({\n        ...commonReducers,\n        ...config.pageReducers,\n      }));\n    }\n  }\n  render() {\n    return (\n      <Provider store={store}>\n        <Comp {...this.props} />\n      </Provider>\n    );\n  }\n};"
+    },
+    {
+      "type": "text",
+      "data": "4."
     }
   ]
 }

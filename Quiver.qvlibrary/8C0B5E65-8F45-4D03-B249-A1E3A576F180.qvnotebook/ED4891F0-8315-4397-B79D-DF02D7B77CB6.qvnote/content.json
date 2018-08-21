@@ -1,0 +1,37 @@
+{
+  "title": "DEEP ENOUGHT?",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 既然使用了redux 什么样的数据应该被放在store/state"
+    },
+    {
+      "type": "text",
+      "data": "2. 调用 setState 的时候发生了什么<div>&nbsp; &nbsp;Key: reconciliation</div>"
+    },
+    {
+      "type": "text",
+      "data": "3. Render props"
+    },
+    {
+      "type": "text",
+      "data": "4. controller component OR uncontroller component"
+    },
+    {
+      "type": "text",
+      "data": "5. Why React.children.map(props.children,()=&gt;{}) not props.children.map(()=&gt;{})<div>&nbsp;&nbsp;<span style=\"color: rgb(51, 51, 51); font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">不能保证props.children将是一个数组。</span></div>"
+    },
+    {
+      "type": "text",
+      "data": "6. React 中的事件描述方式？<div>&nbsp; Key: 如何解决浏览器的兼容性问题 合成事件 SyntheticEvent</div>"
+    },
+    {
+      "type": "text",
+      "data": "7. Redux 两个显著特征<div>&nbsp; 可预测性 可拓展性</div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
