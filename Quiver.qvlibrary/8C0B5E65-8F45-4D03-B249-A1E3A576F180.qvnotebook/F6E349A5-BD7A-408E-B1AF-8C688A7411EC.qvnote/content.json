@@ -1,0 +1,17 @@
+{
+  "title": "Anti-pattern in React",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. event delegation"
+    },
+    {
+      "type": "text",
+      "data": "2. what should not be place in state<div>&nbsp; - passed from via props</div><div>&nbsp; - unchange over time</div><div>&nbsp; - can compute base on other state or props</div>"
+    },
+    {
+      "type": "text",
+      "data": "3. where your state should live<div><br></div>"
+    }
+  ]
+}

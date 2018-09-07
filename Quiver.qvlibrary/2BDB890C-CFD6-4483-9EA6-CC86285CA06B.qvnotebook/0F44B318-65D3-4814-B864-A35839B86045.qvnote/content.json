@@ -1,0 +1,17 @@
+{
+  "title": "why shoule we use event delegation",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 简化初始化 节省内存 减少事件控制器<div>2. 简化代码 增加/解除事件绑定的时候很方便</div><div>3. DOM 修改 &nbsp;</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": "不足<div>1. 只支持可以冒泡的事件</div><div>2. delegation 可能会增加CPU的负担，容器级别的event handler 会处理来自很多地方的事件，无论是否真正要处理的，不过不用太在意，这个是微不足道的</div>"
+    },
+    {
+      "type": "text",
+      "data": "<div><br></div><div>useage</div><div>1. 通过事件委托隐藏dom节点</div><div>2. Tree menu</div><div>3. table 列排序</div>"
+    }
+  ]
+}

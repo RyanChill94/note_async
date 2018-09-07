@@ -1,0 +1,10 @@
+{
+  "title": "animatedScrollTo.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "document.getElementsByTagName('button')[0].onclick = function () {\n   scrollTo(document.body, 0, 1250);   \n}\n    \nfunction scrollTo(element, to, duration) {\n    var start = element.scrollTop,\n        change = to - start,\n        currentTime = 0,\n        increment = 20;\n        \n    var animateScroll = function(){        \n        currentTime += increment;\n        var val = Math.easeInOutQuad(currentTime, start, change, duration);\n        element.scrollTop = val;\n        if(currentTime < duration) {\n            setTimeout(animateScroll, increment);\n        }\n    };\n    animateScroll();\n}\n\n//t = current time\n//b = start value\n//c = change in value\n//d = duration\nMath.easeInOutQuad = function (t, b, c, d) {\n  t /= d/2;\n\tif (t < 1) return c/2*t*t + b;\n\tt--;\n\treturn -c/2 * (t*(t-2) - 1) + b;\n};"
+    }
+  ]
+}
