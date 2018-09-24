@@ -17,7 +17,16 @@
     },
     {
       "type": "text",
-      "data": "4."
+      "data": "4. redux 中提供的工具函数 combineReducer 是可以多次调用的<div>最终形成一个树形结构的state</div><div>eg</div><div>a = combineReducer({</div><div>&nbsp; aa,aaa</div><div>})</div><div><br></div><div>rootReducer = combineReducer({</div><div>&nbsp; a,</div><div>&nbsp; b</div><div>})</div><div><br></div><div>最终形成的store是</div><div>B</div><div>A.aa</div><div>A.aaa</div>"
+    },
+    {
+      "type": "text",
+      "data": "5. React-redux 实现的自动监听<div>redux 默认的 api中只有</div><div>store.dispatch</div><div>Store.subscribe(listener)</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function select(state) {\n  return state.some.deep.property\n}\n\nlet currentValue\nfunction handleChange() {\n  let previousValue = currentValue\n  currentValue = select(store.getState())\n\n  if (previousValue !== currentValue) {\n    console.log(\n      'Some deep nested property changed from',\n      previousValue,\n      'to',\n      currentValue\n    )\n  }\n}\n\nconst unsubscribe = store.subscribe(handleChange)\nunsubscribe()"
     }
   ]
 }

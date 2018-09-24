@@ -1,0 +1,14 @@
+{
+  "title": "some cool stuff",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 使用$q来生成延迟对象"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var code = $q.defer()\ncode.reslove()/ code reject()\nreturn  code.promise;"
+    }
+  ]
+}

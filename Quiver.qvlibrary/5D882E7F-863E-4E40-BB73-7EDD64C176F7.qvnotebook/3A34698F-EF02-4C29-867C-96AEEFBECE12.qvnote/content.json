@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "var scrollToTop = _ => {\n  var c = document.documentElement.scrollTop || document.body.scrollTop;\n  if(c > 0) {\n    window.requestAnimationFrame(scrollToTop);\n    window.scrollTo(0, c - c/8);\n  }\n}"
+      "data": "// 必须先用一个闭包把timeout 一个人 high order function\nbackToTopFn = () => {\n        let timeout;\n        const scroller = $('.msz-scroller');\n        return function scrollToTop() {\n            const scrollY = scroller.scrollTop();\n            if (scrollY !== 0) {\n                scroller[0].scrollBy(0, -300);\n                timeout = setTimeout(scrollToTop, 10);\n            } else {\n                clearTimeout(timeout);\n            }\n        };\n    };\n\n\n// abetter way\nvar scrollToTop = _ => {\n  var c = document.documentElement.scrollTop || document.body.scrollTop;\n  if(c > 0) {\n    window.requestAnimationFrame(scrollToTop);\n    window.scrollTo(0, c - c/8);\n  }\n}\n\n\n"
     }
   ]
 }

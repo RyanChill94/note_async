@@ -1,0 +1,9 @@
+{
+  "title": "JS animation",
+  "cells": [
+    {
+      "type": "text",
+      "data": "some principle<div>1. fps</div><div>2. 屏幕刷新率 HZ</div><div>3. 系统时钟频率</div>"
+    }
+  ]
+}
