@@ -32,6 +32,26 @@
     {
       "type": "text",
       "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "TRAPS"
+    },
+    {
+      "type": "text",
+      "data": "1. 调用setState一定会 reRender吗<div>&nbsp; - 时期</div><div>&nbsp; - scu</div><div><br></div><div>2. 多次调用 setState 会怎么样</div><div>&nbsp; &nbsp;在setTimeout/setInterval 中调用 setState</div><div>&nbsp; - isPatching 标识 合并 批更新</div><div>&nbsp; - 直接设置为 dirty Componennt</div><div><br></div><div>3. 哪里禁止调用 setState</div><div>&nbsp; - scu</div><div>&nbsp; - cwu</div><div>&nbsp; 会造成循环调用</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
     }
   ]
 }
