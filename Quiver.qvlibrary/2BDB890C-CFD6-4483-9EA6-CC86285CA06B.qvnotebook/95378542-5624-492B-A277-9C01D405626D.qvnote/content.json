@@ -1,0 +1,17 @@
+{
+  "title": "what the hell is sideEffect",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">\"</span><b style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">Side Effect</b><span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">\" is not a&nbsp;</span><b style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">react</b><span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">-specific term. It is a general concept about behaviours of functions. A function is said to have&nbsp;</span><b style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">side effect</b><span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">&nbsp;if it trys to modify anything outside its body. For example, if it modidifies a global variable, then it is a&nbsp;</span><b style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">side effect</b><span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">. If it makes a network call, it is a&nbsp;</span><b style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">side effect</b><span style=\"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">&nbsp;as well.<br></span>"
+    },
+    {
+      "type": "text",
+      "data": "一个函数的概念，改变外部函数外部的变量<br>"
+    },
+    {
+      "type": "text",
+      "data": "非纯函数 -&gt; 有副作用&nbsp;"
+    }
+  ]
+}
