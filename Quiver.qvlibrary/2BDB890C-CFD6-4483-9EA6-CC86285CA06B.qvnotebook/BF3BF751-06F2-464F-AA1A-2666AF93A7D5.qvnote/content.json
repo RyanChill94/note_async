@@ -11,7 +11,7 @@
     },
     {
       "type": "text",
-      "data": "重排重绘<div><br></div><div>1.<br><div><br></div><div><img src=\"quiver-image-url/B41A163FF451CC8DC7D79B369038F845.jpg\" width=\"658\" height=\"405\"></div><div><br></div><div>2. 重排的步骤包括 Recalucate Style 、 Layout 、 Update Layout Tree</div></div><div>&nbsp; &nbsp;重绘的步骤包括 Paint Composite Layers</div><div><br></div>"
+      "data": "重排重绘<div><br></div><div>1.<br><div><br></div><div><img src=\"quiver-image-url/B41A163FF451CC8DC7D79B369038F845.jpg\" width=\"658\" height=\"405\"></div><div><br></div><div>why reflow is waste performance</div><div>2. 重排的步骤包括 Recalucate Style 、 Layout 、 Update Layout Tree</div></div><div>&nbsp; &nbsp;重绘的步骤包括 Paint Composite Layers</div><div><br></div>"
     }
   ]
 }

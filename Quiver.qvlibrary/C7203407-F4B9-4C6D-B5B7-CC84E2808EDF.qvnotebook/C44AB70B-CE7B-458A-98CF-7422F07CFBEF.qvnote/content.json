@@ -1,0 +1,10 @@
+{
+  "title": "webpack.dev.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');\nconst BabelEnginePlugin = require('@jd/wq-babel-engine-plugin');\nconst config = require('./webpack.config');\nconst args = require('yargs').argv;\n\nconst projectMark = 'sz';\nconst port = args.port || 8080;\nconst host = 'localhost';\n// 本地环境静态资源路径\nconst localPublicPath = `http://${host}:${port}/`;\n\nconfig.output.publicPath = localPublicPath;\nconfig.devtool = '#eval'; // 调试版要开启sourcemap\nconfig.plugins.shift(); // 调试版不需要清空dist文件夹\n\nconfig.plugins.unshift(\n    new BabelEnginePlugin({\n        presets: ['env']\n    })\n);\n\n// 开启文件监听\nconfig.watch = true;\nconfig.watchOptions = {\n    ignored: /node_modules/,\n    aggregateTimeout: 300,\n    poll: 10\n};\n// 开启显示id和名称的对应关系\nconfig.plugins.push(new NamedModulesPlugin());\n\nconfig.devServer = {\n    inline: true,\n    compress: true,\n    hot: true,\n    proxy: proxy(),\n    stats: {\n        chunks: false,\n        children: false,\n        colors: true\n    },\n    historyApiFallback: true,\n    port,\n    host,\n    open: true,\n    openPage: `${projectMark}/view/index/index.html`\n};\n\nfunction proxy() {\n    const base = {\n        secure: true,\n        changeOrigin: true\n    };\n    return {\n        [`/${projectMark}/view/**`]: {\n            ...base,\n            target: localPublicPath,\n            pathRewrite: path => path.replace(`/${projectMark}/view`, '/views')\n        },\n        '**/*.ajax': {\n            ...base,\n            target: `http://apimock.dev.bid.jd.com/`\n        },\n        '/help': {\n            ...base,\n            target: `http://apimock.dev.bid.jd.com/`\n        }\n    };\n}\n\nmodule.exports = config;\n"
+    }
+  ]
+}

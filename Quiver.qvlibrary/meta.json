@@ -22,6 +22,9 @@
       "children" : [
         {
           "uuid" : "BC18526C-5E0E-444A-8065-2F7510097BDE"
+        },
+        {
+          "uuid" : "C7203407-F4B9-4C6D-B5B7-CC84E2808EDF"
         }
       ],
       "uuid" : "05555F70-B543-4F03-8764-48EB446F381A"
@@ -51,7 +54,10 @@
       "uuid" : "91D388C4-7A47-4516-87C5-CAA46ABE18C9"
     },
     {
-      "uuid" : "87D25015-9184-43A3-A5DC-0F8D8507A6FA"
+      "uuid" : "89EFA769-D3C9-4628-B8C6-80F8ABBE8936"
+    },
+    {
+      "uuid" : "4F6EA5B2-BFD9-484E-98E8-D57805957228"
     }
   ],
   "uuid" : "Notebooks"

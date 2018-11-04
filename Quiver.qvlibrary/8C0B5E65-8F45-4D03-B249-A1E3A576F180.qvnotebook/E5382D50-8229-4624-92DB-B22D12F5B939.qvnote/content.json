@@ -22,6 +22,19 @@
     {
       "type": "text",
       "data": "<img src=\"quiver-image-url/F056A780BE88205FF6FEE1C1E070896D.jpg\" alt=\"preview\" width=\"1964\" height=\"794\"><br>"
+    },
+    {
+      "type": "text",
+      "data": "Redux middle ware的本质相当于对 store.dispatch函数的增强<br><div><div><br></div></div>"
+    },
+    {
+      "type": "text",
+      "data": "如果middle 涉及一些可被终止的功能，可以返回相应的处理函数<div><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/**\n * Schedules actions with { meta: { delay: N } } to be delayed by N milliseconds.\n * Makes `dispatch` return a function to cancel the timeout in this case.\n */\nconst timeoutScheduler = store => next => action => {\n  if (!action.meta || !action.meta.delay) {\n    return next(action)\n  }\n\n  const timeoutId = setTimeout(() => next(action), action.meta.delay)\n\n  return function cancel() {\n    clearTimeout(timeoutId)\n  }\n}\n\n\nconst cancel = store.dispatch({type : \"INCREMENT\", meta : {delay : 1000}});\n\n// kill it off\ncancel();\nOr, similarly with a bound action creator in a React component:\n\n// assume we have an action creator like this passed to connect():\nfunction incrementWithDelay() {\n    return {type : \"INCREMENT\", meta : {delay : 1000}};\n}\n\n\nconst cancel = this.props.incrementWithDelay();\ncancel();"
     }
   ]
 }

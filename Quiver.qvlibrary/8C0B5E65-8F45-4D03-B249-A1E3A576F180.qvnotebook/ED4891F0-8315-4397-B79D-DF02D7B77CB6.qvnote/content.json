@@ -32,6 +32,26 @@
     {
       "type": "text",
       "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "TRAPS"
+    },
+    {
+      "type": "text",
+      "data": "1. 调用setState一定会 reRender吗<div>&nbsp; - 时期</div><div>&nbsp; - scu</div><div><br></div><div>2. 多次调用 setState 会怎么样</div><div>&nbsp; &nbsp;在setTimeout/setInterval 中调用 setState</div><div>&nbsp; - isPatching 标识 合并 批更新</div><div>&nbsp; - 直接设置为 dirty Componennt</div><div><br></div><div>3. 哪里禁止调用 setState</div><div>&nbsp; - scu</div><div>&nbsp; - cwu</div><div>&nbsp; 会造成循环调用</div><div><br></div><div>4. “Controller Component” &nbsp;<span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">because the parent component&nbsp;</span><em style=\"color: rgb(0, 0, 0); margin: 0px; padding: 0px; box-sizing: inherit; font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">controls</em><span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">&nbsp;that data</span></div><div><span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">&nbsp; &nbsp; &nbsp;“<span style=\"margin: 0px; padding: 0px; box-sizing: inherit; color: rgb(0, 0, 0); font-size: 17px; font-variant-ligatures: normal;\">&nbsp;uncontrolled</span>” &nbsp;</span><span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; orphans: 2; widows: 2;\">because the parent can’t directly change it</span></div><div><span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; orphans: 2; widows: 2;\"><br></span></div><div><span style=\"color: rgb(0, 0, 0); font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif; font-size: 17px; orphans: 2; widows: 2;\"><br></span></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
     }
   ]
 }

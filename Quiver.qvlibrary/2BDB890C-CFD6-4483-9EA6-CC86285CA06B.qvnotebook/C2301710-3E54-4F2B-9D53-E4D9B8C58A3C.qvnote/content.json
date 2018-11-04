@@ -1,0 +1,9 @@
+{
+  "title": "instanceof",
+  "cells": [
+    {
+      "type": "text",
+      "data": "instanceof 判断 构造函数的prototype有没有出现在原型链的任意位置<div><br></div><div><br></div><div>var simpleStr = ‘abncssss’</div><div>var Str = new String(‘ancs’)</div><div><br></div><div>simpleStr instanceof String // false</div><div>Str instanceof String // true</div>"
+    }
+  ]
+}

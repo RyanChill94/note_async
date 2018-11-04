@@ -1,0 +1,9 @@
+{
+  "title": "PWA",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 缓存策略<div>&nbsp;- 缓存优先</div><div>&nbsp;- 网络优先</div><div>&nbsp;- 速度优先 【】</div><div>&nbsp;-&nbsp;<br>2. mainifest&nbsp;</div><div>fullScreen</div><div>启动动画</div>"
+    }
+  ]
+}

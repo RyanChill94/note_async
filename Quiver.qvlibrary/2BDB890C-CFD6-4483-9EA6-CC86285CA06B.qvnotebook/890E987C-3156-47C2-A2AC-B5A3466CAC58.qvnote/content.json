@@ -1,0 +1,46 @@
+{
+  "title": "let vs var",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1 ES5只有函数作用域 只能使用函数作用域去模拟块级作用域"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "\"use strict\";\nvar base = 1000;\nvar bonus = 0;\n\nfunction getSalary(addBonus) {\n    if (addBonus) {\n        var bonus = 100;\n        return base + bonus;\n    }\n    return base + bonus;\n}\n\nconsole.log(getSalary(false));  // NaN bonus 被提升了\nconsole.log(getSalary(true));\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// let => allow you to declear a block scope\n\n// when use es5 \n// es5 中的块级作用域只能是函数作用域\n \n\nfunction testVar() {\n    var a = 1;\n    var c;\n    function aTest() {\n        var b = 2;\n        c = 3;\n        console.log(a)\n    }\n    \n    console.log('%cloop Start', 'background:#ffffff;color:red');\n    for (var i = 0; i < 10; i++) {\n        // variabel declear here can be access in other palce  \n        var d = 'a new data declear';  \n        console.log(i);\n    }\n\n    console.log('%cloop End', 'background:#ffffff;color:red');\n\n    // 使用let定义 无法访问\n    // 使用var定义 可以访问\n    console.log(i);\n\n    aTest();\n    // console.log(b); // b is not defined\n    console.log(c);\n    console.log('%cvariable declear in loop can be access', 'background:#ffffff;color:blue');\n    console.log(d);\n}\n\ntestVar()\n\n\n// allow\n{\n    let aaa = 1;\n}\n\nlet aaa = 2"
+    },
+    {
+      "type": "text",
+      "data": "2. let 在最顶层定义并不会被挂载在gloabl上"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var x = 'gloabl';\nlet y = 'gloabl';\nconsole.log(this.x) // 'gloabl';\nconsole.log(this.y) // undefined"
+    },
+    {
+      "type": "text",
+      "data": "<div><br></div><div>3.在 词法范围的 TDZ</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function test(){\n   var foo = 33;\n   if (true) {\n      let foo = (foo + 55); // ReferenceError\n   }\n}\ntest()\n\nfunction go(n) {\n  // n here is defined!\n  console.log(n); // Object {a: [1,2,3]}\n\n  for (let n of n.a) { // ReferenceError\n    console.log(n);\n  }\n}\n\ngo({a: [1, 2, 3]});"
+    },
+    {
+      "type": "text",
+      "data": "4. 作用域链"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// ES5/6 都是遵循作用域链的\nvar number = 123;\nfunction fn1() {\n  console.log(num)\n}\n\nfunction fn2() {\n  var num = 456;\n  fn1();\n}\n\nfn2() // 456"
+    }
+  ]
+}
