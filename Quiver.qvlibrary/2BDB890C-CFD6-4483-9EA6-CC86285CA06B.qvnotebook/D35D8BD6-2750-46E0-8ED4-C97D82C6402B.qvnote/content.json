@@ -1,0 +1,40 @@
+{
+  "title": "Way to watch a variable in Javascript",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. dirty check<div>比较新旧值,当值发生变化的时候再去更改dom，angular 中 $digest&nbsp;</div><div>Ng-click vs onClick</div><div>在结果的变化中增加$digest</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "作者：月迷津渡DaraW\n链接：https://www.zhihu.com/question/44724640/answer/117339055\n来源：知乎\n著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。\n\n<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"utf-8\" />\n        <title>two-way binding</title>\n    </head>\n    <body onload=\"init()\">\n        <button ng-click=\"inc\">\n            Increase\n        </button>\n        <button ng-click=\"reset\">\n            Reset\n        </button>\n        <span style=\"color:red\" ng-bind=\"counter\"></span>\n        <span style=\"color:blue\" ng-bind=\"counter\"></span>\n        <span style=\"color:green\" ng-bind=\"counter\"></span>\n\n        <script type=\"text/javascript\">\n            /* 数据模型区开始 */\n            var counter = 0;\n\n            function inc() {\n                counter++;\n            }\n\n            function reset() {\n                counter = 0;\n            }\n            /* 数据模型区结束 */\n\n            /* 绑定关系区开始 */\n            function init() {\n                bind();\n            }\n\n            function bind() {\n                var list = document.querySelectorAll(\"[ng-click]\");\n                for (var i=0; i<list.length; i++) {\n                    list[i].onclick = (function(index) {\n                        return function() {\n                            window[list[index].getAttribute(\"ng-click\")]();\n                            apply();\n                        };\n                    })(i);\n                }\n            }\n\n            function apply() {\n                var list = document.querySelectorAll(\"[ng-bind='counter']\");\n                for (var i=0; i<list.length; i++) {\n                    if (list[i].innerHTML != counter) {\n                        list[i].innerHTML = counter;\n                    }\n                }\n            }\n            /* 绑定关系区结束 */\n        </script>\n    </body>\n</html>"
+    },
+    {
+      "type": "text",
+      "data": "坏处: 可以能检测大量的数据，影响性能<div>how to optimize?</div>"
+    },
+    {
+      "type": "text",
+      "data": "2. ES5 中的getter setter<div>Object.defineProperty</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var a = { zhihu:0 };\n\nObject.defineProperty(a, 'zhihu', {\n  get: function() {\n    console.log('get：' + zhihu);\n    return zhihu;\n  },\n  set: function(value) {\n    zhihu = value;\n    console.log('set:' + zhihu);\n  }\n});\n\na.zhihu = 2; // set:2\nconsole.log(a.zhihu); // get：2\n\n"
+    },
+    {
+      "type": "text",
+      "data": "3. Es2017 stage-2 observe<div>已经被废弃&nbsp;</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 一个数据模型\nvar user = {\n  id: 0,\n  name: 'Brendan Eich',\n  title: 'Mr.'\n};\n\n// 创建用户的greeting\nfunction updateGreeting() {\n  user.greeting = 'Hello, ' + user.title + ' ' + user.name + '!';\n}\nupdateGreeting();\n\nObject.observe(user, function(changes) {\n  changes.forEach(function(change) {\n    // 当name或title属性改变时, 更新greeting\n    if (change.name === 'name' || change.name === 'title') {\n      updateGreeting();\n    }\n  });\n});\n"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

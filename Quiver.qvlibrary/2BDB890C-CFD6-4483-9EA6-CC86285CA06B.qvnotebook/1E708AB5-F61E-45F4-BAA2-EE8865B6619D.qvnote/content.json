@@ -1,0 +1,9 @@
+{
+  "title": "resume.md",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "\n# 联系方式\n\n- 手机：**17600223493**\n- Email：Ryanchur151@gmail.com\n- 微信号：Ryanchill\n\n# 个人信息\n\n - 邱宇瀚/男/1994\n - 本科/西安邮电大学\n - 工作年限：1年\n - 外语能力：CET-6\n - 技术博客：http://RyanChill94.github.io\n - Github：http://github.com/RyanChill94\n - 个人荣誉：国家励志奖学金、校级二等奖学金\n - 期望职位：Web前端开发\n\n# 技术能力\n\n- 熟悉常用的 DOM操作类库：jQuery/Zepto\n- 熟悉常用的UI框架: Bootstrap/AntD\n- 熟悉的项目管理工具：git\n- 熟悉流行前端框架：Angular1.x/React\n- 熟悉的css预/后编译器：Sass/postCss\n- 熟悉常用的可视化库：highcharts/Echarts/D3\n- 了解前端路由框架的使用：React-Router\n- 了解JavaScript模块化编写：RequireJS/ESmodules\n- 了解自动化构建工具的使用：webpack/gulp/parcels\n- 了解基本后端工具：php/Lavarel/node\n- 了解其他web相关技术：mySQL/HiveSQL/web性能优化/web安全/SVG/ES6\n\n# 工作经历\n**北京京东世纪贸易有限公司**\n- 时间：2017.7.4 - 至今\n- 职位：前端开发工程师\n- 项目经历\n    - 1. 京东商智\n        - 技术栈： Angular1.6/Gulp/requireJS/Echarts\n        - 该系统是面向京东平台第三方商家的BI系统，用户量接近10万。系统使用Angular1.6版本作为项目的框架，Gulp作为项目构建工具。参与了系统的中多个模块以及衍生的时效率系统的编写，【你做了什么不一样的？？】\n    - 2. 京东商智移动版\n        - 技术栈： React15/Redux/ReactRouter/fiexiablejs/webpack/Eslint\n        - 该系统是商智的移动版本，作为WebApp嵌入在京麦App中，项目使用React全家桶编写，参与了项目中多个组件的封装以及多个模块的开发，【解决了多个移动兼容性bug】，拆分模块代码，增加代码可维护性，升级webapck至4.0,去除冗余打包文件【babel-runtime-plugin】，尝试了SeriveWorker的离线缓存功能，保证用户在网络环境不佳的情况下的体验。\n    - 3. 品牌纵横\n        - 技术栈 React16/Redux/webapck/HighCharts/D3\n\n      \n\n# 知识积累\n 1. 技术博客\n 2. 技术翻译\n     - [blog]()\n     - [Front-End-handBook]()\n 3. 开源项目\n    - [ptr-react]() 一个简单小巧的下拉刷新组件，使用react编写\n    - [emoji Emitter]()\n    - [webpack-extra-attr-plugins]() 一个简易的插件实现html-plugin注入js自动添加自定义属性\n4. 公司内部分分享\n    - [Https 扫盲指南]()\n\n# 自我评价\n- 专注并且热爱前端，喜欢web新技术\n- 能够与同事较好的协同工作，乐于交流\n- 较强的外语能力，能够无障碍的阅读文档，偶尔参与翻译\n    \n  \n---      \n# 致谢\n感谢您花时间阅读我的简历，期待能有机会和您共事。\n\n"
+    }
+  ]
+}

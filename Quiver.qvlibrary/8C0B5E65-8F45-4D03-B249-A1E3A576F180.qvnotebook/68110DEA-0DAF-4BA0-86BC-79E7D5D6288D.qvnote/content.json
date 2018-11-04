@@ -1,0 +1,18 @@
+{
+  "title": "some skills",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1.避免层级过深的三目表达式 &nbsp;"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "render(){\n  return(\n    <div className='wrapper'>\n    {\n      (()=>{\n        if(loadingState){\n          return <p> Loading...</p>\n        }else if(!isLogin){\n          return <LoginIn />\n        }else if(!Regesiter){\n          return <SignUp />\n        }\n        return props.children\n      })()\n    }\n    </div>\n  )\n}"
+    },
+    {
+      "type": "text",
+      "data": "2."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "String Replace 再爱我一次🐶",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "> JavaScript repalce \n\n### 重温 JS replace 方法\n\n- 基本用法\n\n  ```js\n  let pet = 'my little 🦄';\n  console.log(pet.replace('little','gaint'))\n  ```\n\n- 链式调用\n  ```js\n  let pet = 'my little 🦄';\n  \n  let anotherPet = pet\n    .replace('my','your')\n    .replace('litter',giant)\n    .replace('🦄','🐧');\n    \n  console.log(anotherPet) // your gaint 🐧\n  ```\n- 使用特殊占位符来替换匹配项\n  let str = 'a big 🐊';\n\n  console.log(myStr.replace('gator', '-$&-$&'));\n// My little Alli-gator-gator 🐊"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

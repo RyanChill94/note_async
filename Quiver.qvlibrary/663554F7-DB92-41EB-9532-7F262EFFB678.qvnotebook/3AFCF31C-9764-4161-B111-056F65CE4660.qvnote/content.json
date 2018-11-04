@@ -8,7 +8,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": " - npm [list/ls] // 查看安装的包\n - npm i -g eazydict --verbose  // --verbose 可以查看\n - npm outdated 检查模块是否已经过时\n - npm publish 发包\n - npm root [packageName] // 查看包的安装路径\n - npm config\n    - list //查看所有配置\n    - get proxy / set proxy / delete proxy"
+      "data": "bin 可执行的二进制文件\n \n - npm [list/ls] // 查看安装的包\n - npm i -g eazydict --verbose  // --verbose 可以查看\n - npm outdated 检查模块是否已经过时\n - npm publish 发包\n - npm root [packageName] // 查看包的安装路径\n - npm config\n    - list //查看所有配置\n    - get proxy / set proxy / delete proxy\n    \n 快速打开访问一个repo\n - npm repo axios\n - npm home axios\n - npm bug axios"
     }
   ]
 }
