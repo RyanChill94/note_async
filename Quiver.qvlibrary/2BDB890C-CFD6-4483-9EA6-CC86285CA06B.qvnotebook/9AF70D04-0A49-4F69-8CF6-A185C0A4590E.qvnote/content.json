@@ -1,0 +1,13 @@
+{
+  "title": "CDN 回源",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>当 cdn 缓存服务器中没有符合客户端要求的资源的时候，缓存服务器会请求上一级缓存服务器，以此类推，直到获取到。最后如果还是没有，就会回到我们自己的服务器去获取资源。\n那都有哪些时候会回源呢？没有资源，资源过期，访问的资源是不缓存资源等都会导致回源。</div>"
+    },
+    {
+      "type": "text",
+      "data": "<div><img src=\"quiver-image-url/E7DD547978B3898B74C8A214DC549800.jpg\" alt=\"1634aa918e995ee1.jpg\" width=\"716\" height=\"411\"></div><div><br></div><div>全链路 Https<br></div><div><br></div>"
+    }
+  ]
+}

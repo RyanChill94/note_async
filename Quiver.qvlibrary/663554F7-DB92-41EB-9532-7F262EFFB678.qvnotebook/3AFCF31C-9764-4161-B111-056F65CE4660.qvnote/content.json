@@ -8,7 +8,16 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "bin 可执行的二进制文件\n \n - npm [list/ls] // 查看安装的包\n - npm i -g eazydict --verbose  // --verbose 可以查看\n - npm outdated 检查模块是否已经过时\n - npm publish 发包\n - npm root [packageName] // 查看包的安装路径\n - npm config\n    - list //查看所有配置\n    - get proxy / set proxy / delete proxy\n    \n 快速打开访问一个repo\n - npm repo axios\n - npm home axios\n - npm bug axios"
+      "data": "bin 可执行的二进制文件\n \n - npm [list/ls] // 查看安装的包\n - npm i -g eazydict --verbose  // --verbose 可以查看\n - npm outdated 检查模块是否已经过时\n - npm publish 发包\n - npm root [packageName] // 查看包的安装路径\n - npm config\n    - list //查看所有配置\n    - get proxy / set proxy / delete proxy\n    \n 快速打开访问一个repo\n - npm repo axios\n - npm home axios\n - npm bug axios\n"
+    },
+    {
+      "type": "text",
+      "data": "NPX"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "如果你的babel-cli 或者其他可执行文件是通过项目安装的 也就是--save-dev\n如果你使用 相对路径 => node ./node_modules/.bin/babel script.js --out-file script-compiled.js\nbetter way => npx babbel script.js --out-file script-compiled.js"
     }
   ]
 }
