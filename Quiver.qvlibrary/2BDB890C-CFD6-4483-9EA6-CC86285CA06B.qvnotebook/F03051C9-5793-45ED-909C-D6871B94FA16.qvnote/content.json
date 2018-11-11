@@ -3,7 +3,7 @@
   "cells": [
     {
       "type": "markdown",
-      "data": "- 通过**拦截网络**请求去实现离线缓存"
+      "data": "aim\n1. 缓存静态资源\n2. 缓存离线请求【非实时模块】？\n3. other?\n\ndef\n本质上充当着web app 于 浏览器之间的代理服务器\n在网络可用的时候作为浏览器和网路间的代理\n\n1. 有效的离线体验 \n2. **拦截网络**请求、 判断是否更新或者其他操作\n3. 推送通知 后台同步api\n\nKNOW\nfetch XHR的替代方案\nXHR 没法直接使用\n\n周期\n1. install\n2. active\n3. fetch\n\nwaitunil\ncache.open\n"
     }
   ]
 }
