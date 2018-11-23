@@ -1,0 +1,10 @@
+{
+  "title": "call",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " const call = (key,...args) => context => context[key](...args)\n \n Promise.resolve([1, 2, 3])\n  .then(call('map', x =>  x * 2))\n  .then(console.log);\n  \n  // or\nconst map = call.bind(null, 'map');\nPromise.resolve([2,3,4])\n  .then(map(x => x * 2))\n  .then(console.log);"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Get Max num index",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "data.indexOf(Math.max(...data));"
+    }
+  ]
+}

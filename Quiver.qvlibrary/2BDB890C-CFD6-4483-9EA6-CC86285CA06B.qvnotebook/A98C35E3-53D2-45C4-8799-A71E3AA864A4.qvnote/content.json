@@ -1,0 +1,10 @@
+{
+  "title": "convert Array-like ",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 1\nArray.prototype.slice.call(arguments)\n\n// 2\nArray.from(arguments)\n\n// 3\nfunciton (...args)"
+    }
+  ]
+}

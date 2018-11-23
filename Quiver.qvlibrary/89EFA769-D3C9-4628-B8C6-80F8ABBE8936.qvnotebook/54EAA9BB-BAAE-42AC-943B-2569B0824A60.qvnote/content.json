@@ -1,0 +1,10 @@
+{
+  "title": "Copy Native Object prototype",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "Object.getOwnPropertyNames(Date.prototype)\n  .filter(prop => prop !== 'constructor')\n  .forEach(prop => {\n    const propertyDescriptor = Object.getOwnPropertyDescripter(Date.prototype, prop);\n    const {configurable, enemuerable} = propertyDescriptor;\n    const desc = \n      {}.toString.call(Date.proptype[prop] === 'Object Function')\n        ? {\n          get() {\n            return Date.prototype.bind(this.date)\n          }\n          configurable, \n          enumerable\n        }\n        : propertyDescripter\n        Object.defineProperty(GraceDate.prototype, prop, desc)\n  })"
+    }
+  ]
+}

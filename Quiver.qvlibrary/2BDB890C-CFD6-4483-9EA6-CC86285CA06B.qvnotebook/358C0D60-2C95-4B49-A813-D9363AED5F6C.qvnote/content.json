@@ -1,0 +1,10 @@
+{
+  "title": "Break-nested-loop.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "out: for (var i = 0; i < 5; i++) {\n    for (var j = 0; j < 5; j++) {\n        console.log(i, j)\n        if (i === 1 && j == 2) {\n            break out;\n        }\n    }\n}\n\nfunction breakJail() {\n    for (var i = 0; i < 5; i++) {\n        for (var j = 0; j < 5; j++) {\n            console.log(i, j)\n            if (i === 1 && j == 2) {\n                return;\n            }\n        }\n    }\n}\n\nbreakJail()"
+    }
+  ]
+}
