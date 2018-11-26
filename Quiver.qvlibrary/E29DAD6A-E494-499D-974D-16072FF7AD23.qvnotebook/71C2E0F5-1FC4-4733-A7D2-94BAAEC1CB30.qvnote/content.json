@@ -1,0 +1,28 @@
+{
+  "title": "JS 参数传递",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var test = [{name:'a'},{name:'b'},{name:'c'}]\ntest.map(item =>{\n    item.name = 'oo';\n    item = null\n})\n\nconsole.log(test);\n\nvar test = [{name:'a'},{name:'b'},{name:'c'}]\ntest.map(item =>{\n\titem = {}\n    item.name = 'oo';\n    \n})\n\nconsole.log(test);\n"
+    },
+    {
+      "type": "text",
+      "data": "ES世界中所有的参数传递都是值传递<div><br></div><div>- 基本类型</div><div>&nbsp; 会将值先拷贝被arguments对象的元素</div><div>&nbsp; arguments[0] ..</div><div>- 引用数据类型</div><div>&nbsp; 会先将值的内存地址复制给一个局部变量</div><div>&nbsp;&nbsp;<a href=\"https://github.com/mqyqingfeng/Blog/issues/10\">https://github.com/mqyqingfeng/Blog/issues/10</a></div><div>&nbsp; 其实可以称为按共享传递</div><div>&nbsp; 按引用传递 =&gt; 传递对象的引用</div><div>&nbsp; 按共享传递 =&gt; 传递对象的引用的副本</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 按引用传递？\nvar obj = {\n    value: 1\n};\nfunction foo(o) {\n    o.value = 2;\n    console.log(o.value); //2\n}\nfoo(obj);\nconsole.log(obj.value) // 2\n\nvar obj = {\n    value: 1\n};\nfunction foo(o) {\n    o = 2;\n    console.log(o); //2\n}\nfoo(obj);\nconsole.log(obj.value) // 1\n\n//所以修改 o.value，可以通过引用找到原值，但是直接修改 o，并不会修改原值。所以第二个和第三个例子其实都是按共享传递。"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var a = {name:'FE-DEVELOP'}\nvar b = a;\na = null;\nconsole.log(b) // ? \n// 理解引用"
+    }
+  ]
+}

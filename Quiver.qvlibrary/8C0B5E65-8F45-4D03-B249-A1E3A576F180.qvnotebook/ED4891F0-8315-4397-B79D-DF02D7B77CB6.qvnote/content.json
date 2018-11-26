@@ -31,6 +31,14 @@
     },
     {
       "type": "text",
+      "data": "8. 为什么字符串形式的ref已经不被推荐使用<div>&nbsp; 一些场景不该无法覆盖 map=&gt;动态生成ref</div><div>&nbsp;&nbsp;<a href=\"https://stackoverflow.com/questions/37468913/why-ref-string-is-legacy\">https://stackoverflow.com/questions/37468913/why-ref-string-is-legacy</a></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
       "data": ""
     },
     {

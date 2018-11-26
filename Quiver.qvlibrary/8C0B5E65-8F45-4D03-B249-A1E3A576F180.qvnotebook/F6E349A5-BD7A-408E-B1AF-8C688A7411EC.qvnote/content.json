@@ -11,7 +11,11 @@
     },
     {
       "type": "text",
-      "data": "3. where your state should live<div><br></div>"
+      "data": "3. where your state should live<div><br></div><div>4. Avoid use setState in componentWillMount</div><div>&nbsp; - 在 cwm 调用 setState不会触发重新渲染</div><div>&nbsp; - 不应该在这里调用有副作用的代码，或者订阅</div><div><br></div><div>5. 不使用 setState去 改变state</div><div>&nbsp;- 不会触发 re-render</div><div>&nbsp;- 下一次使用 setState 的时候会把这次的结果一同生效&nbsp;</div>"
+    },
+    {
+      "type": "text",
+      "data": "6. 避免展平对象放到props的时候"
     }
   ]
 }

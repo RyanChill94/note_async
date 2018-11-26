@@ -9,7 +9,27 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "2"
+      "data": "// 2. 将context 包装成一个方法对象\n\n// dependencies.js\nexport {\n  data:{},\n  get(key) {\n    return this.data[key]\n  },\n  register(key, value) {\n    this.data[key] = value\n  }\n}\n\n\nclass test extends React.Componnet{\n  getChildContext(){\n    return dependencies;\n  }\n  render(){\n    return <Header />\n  }\n}\n\n\n// childComp\nthis.context.get('title')"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 3 包装feature\n// createFeatureFlaggedContainer.js\n\nimport React from 'react';\nimport { connect } from 'react-redux';\nimport { isFeatureEnabled } from './reducers'\n\nexport default function createFeatureFlaggedContainer({\n  featureName,\n  enabledComponent,\n  disabledComponent\n  }) {\n  function FeatureFlaggedContainer({ isEnabled, ...props }) {\n    const Component = isEnabled ? enabledComponent : disabledComponent;\n\n    if (Component) {\n      return <Component {...props} />;\n    }\n\n    // `disabledComponent` is optional property\n    return null;\n  }\n\n  // Having `displayName` is very useful for debugging.\n  FeatureFlaggedContainer.displayName = `FeatureFlaggedContainer(${ featureName })`;\n  \n  // 在HOC中 connect\n  return connect((store) => {\n    isEnabled: isFeatureEnabled(store, featureName)\n  })(FeatureFlaggedContainer);\n}\n\n// usage\n// featureEnabled.js\nimport createFeatureFlaggedContainer from './createFeatureFlaggedContainer'\n\n// Decorator for \"Page\" components.\n// usage: enabledFeature('unicorns')(UnicornsPage);\nexport default function enabledFeature(featureName) {\n  return (Component) => {\n    return createFeatureFlaggedContainer({\n      featureName,\n      enabledComponent: Component,\n      disabledComponent: PageNotFound, // 404 page or something similar\n    });\n  };\n};\n\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 4. component switch \nimport HomePage from './HomePage.jsx';\nimport AboutPage from './AboutPage.jsx';\nimport UserPage from './UserPage.jsx';\nimport FourOhFourPage from './FourOhFourPage.jsx';\n\nconst PAGES = {\n  home: HomePage,\n  about: AboutPage,\n  user: UserPage\n};\n\nconst Page = (props) => {\n  const Handler = PAGES[props.page] || FourOhFourPage;\n\n  return <Handler {...props} />\n};\n\n// The keys of the PAGES object can be used in the prop types to catch dev-time errors.\nPage.propTypes = {\n  page: PropTypes.oneOf(Object.keys(PAGES)).isRequired\n};"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " // 5. format compoennt\n // 将一些功能函数抽象成一些组件\n const Price = (props) => {\n  // toLocaleString 并不是React的API而是原生JavaScript的内置方法\n  // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString\n  const price = props.children.toLocaleString('en', {\n    style: props.showSymbol ? 'currency' : undefined,\n    currency: props.showSymbol ? 'USD' : undefined,\n    maximumFractionDigits: props.showDecimals ? 2 : 0\n  });\n\n  return <span className={props.className}>{price}</span>\n};\n\nPrice.propTypes = {\n  className: PropTypes.string,\n  children: PropTypes.number,\n  showDecimals: PropTypes.bool,\n  showSymbol: PropTypes.bool\n};\n\nPrice.defaultProps = {\n  children: 0,\n  showDecimals: true,\n  showSymbol: true,\n};\n\nconst Page = () => {\n  const lambPrice = 1234.567;\n  const jetPrice = 999999.99;\n  const bootPrice = 34.567;\n   return (\n    <div>\n      <p>One lamb is <Price className=\"expensive\">{lambPrice}</Price></p>\n      <p>One jet is <Price showDecimals={false}>{jetPrice}</Price></p>\n      <p>Those gumboots will set ya back\n        <Price\n        showDecimals={false}\n        showSymbol={false}>\n        {bootPrice}\n        </Price>\n        bucks.\n      </p>\n    </div>\n  );\n};\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 6.使用 组合（compose） 来合成UI\n\n// 保证组u件的复用性\n// 纯组件 相同输入 相同输出\n// 组件内没有与外部进行交互\n// 没有副作用\n\nimport React, { Component } from \"react\";\nimport PropTypes from 'prop-types';\nimport SignIn from \"./sign-in\";\n\nclass MemberSignIn extends Component {\n  _renderMemberJoinLinks() {\n    return (\n      <div className=\"member-signup-links\">\n        ...\n      </div>\n    );\n  }\n\n  _routeTo() {\n    // Routing logic here\n  }\n\n  render() {\n    const {forgotEmailRoute,forgotPwdRoute, showMemberSignupLinks} = this.props;\n    return (\n      <div>\n        <SignIn\n          onForgotPasswordRequested={this._routeTo(forgotPwdRoute)}\n          onForgotEmailRequested={this._routeTo(forgotEmailRoute)}>\n          {this.props.children}\n          {showMemberSignupLinks && this._renderMemberJoinLinks()}\n        </SignIn>\n      </div>\n    );\n  }\n}\n\nexport default MemberSignIn;"
     }
   ]
 }
