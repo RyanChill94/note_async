@@ -1,0 +1,10 @@
+{
+  "title": "使用Proxy来试下数据绑定和监听",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作\n\nlet p = new Proxy(target, handler);\n\nlet onWatch = (obj, setBind, getLogger) => {\n  let handler = {\n    get(target, property, receiver) {\n      getLogger(target, property)\n      return Reflect.get(target, property, receiver);\n    },\n    set(target, property, value, receiver) {\n      setBind(value);\n      return Reflect.set(target, property, value);\n    }\n  };\n  return new Proxy(obj, handler);\n};\n\nlet obj = { a: 1 }\nlet value\nlet p = onWatch(obj, (v) => {\n  value = v\n}, (target, property) => {\n  console.log(`Get '${property}' = ${target[property]}`);\n})\np.a = 2 // bind `value` to `2`\np.a // -> Get 'a' = 2"
+    }
+  ]
+}

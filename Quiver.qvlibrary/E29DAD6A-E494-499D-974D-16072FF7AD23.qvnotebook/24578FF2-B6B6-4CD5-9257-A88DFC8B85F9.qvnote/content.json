@@ -1,0 +1,18 @@
+{
+  "title": "闭包",
+  "cells": [
+    {
+      "type": "text",
+      "data": "定义：<div>函数A中返回了函数B，并且函数B中使用了函数A中的变量，函数B就称为闭包</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "for ( var i=1; i<=5; i++) {\n\tsetTimeout( function timer() {\n\t\tconsole.log( i );\n\t}, i*1000 );\n}"
+    },
+    {
+      "type": "text",
+      "data": "key: setTimeout 是异步函数，会先把循环全部执行完毕 i 此时已经是6了<div><br></div><div>fix:</div><div><br></div><div>1. 使用闭包</div><div><br></div><div>2. 使用 let 生成块级作用域</div><div><br></div><div>3. 使用setTimeout的第三个参数</div>"
+    }
+  ]
+}

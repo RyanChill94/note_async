@@ -1,0 +1,23 @@
+{
+  "title": "Event listener memo",
+  "cells": [
+    {
+      "type": "text",
+      "data": "addEventListener 第三个参数是<div>对象 {capture: true/false &nbsp;once:true/false &nbsp;passive: 永远不会调用 preventDefault}</div><div>布尔值 useCapture</div>"
+    },
+    {
+      "type": "code",
+      "language": "html_ruby",
+      "data": "// html\n<div id=\"div1\">\n   <input type=\"button\" value=\"按钮\" id=\"btn\">\n</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "\naddEvent(oBtn, 'click', function () {\n  alert('child trigger！');\n}, true);\n\n\n// useCapture 意味着即使不是 event.target 但是在捕获阶段就可以触发\naddEvent(oDiv, 'click', function (e) {\n  alert('parent trigger! ');\n  // e.stopPropagation() 设置之后可以阻止事件向子级传播\n}, true); \n\n// output => parent , child\n\n\n\naddEvent(oBtn, 'click', function () {\n  alert('child trigger！');\n});\n\naddEvent(oDiv, 'click', function () {\n  alert('parent trigger! ');\n});\n\n\n// output => child , parent"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

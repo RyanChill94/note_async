@@ -35,6 +35,14 @@
     },
     {
       "type": "text",
+      "data": "9. react 中的合成时间做了什么事<div>&nbsp; 对性能有什么提升</div>"
+    },
+    {
+      "type": "text",
+      "data": "10 不使用 react-redux 如何监听store中的值<div>&nbsp; const unsubscribe = store.subscribe(handler)</div><div>&nbsp; Handler里面从 store.getState() 中select 出值进行比较</div>"
+    },
+    {
+      "type": "text",
       "data": ""
     },
     {

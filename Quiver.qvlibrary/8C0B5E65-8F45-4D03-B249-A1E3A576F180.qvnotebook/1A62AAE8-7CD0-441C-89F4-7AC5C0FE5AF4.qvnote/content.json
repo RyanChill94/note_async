@@ -1,0 +1,10 @@
+{
+  "title": "LazyLoadComponent.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// lib.js 定义懒加载函数\n\nmodule.exports.withLazyLoading = function withLazyLoading(getComponent, Spinner = null) {\n    return class LazyLoadingWrapper extends React.Component {\n        constructor(props) {\n            super(props);\n            this.state = ({Component: null})\n        }\n\n        componentWillMount() {\n            const {onLoadingStart, onLoadingEnd, onError} = this.props;\n            onLoadingStart();\n            getComponent().then(esModule => {\n                this.setState({Component: esModule.default})\n            }).catch(err => {\n                onError(err, this.props)\n            })\n        }\n\n        render() {\n            const {Component} = this.state;\n            if (!Component) \n                return Spinner;\n            return <Component { ...this.props }/>\n        }\n    }\n};\n\n// 在需要的地方调用懒加载函数import {withLazyLoading} from \"lib\";// import {Loading} from\n// 'Loadings';\n\nexport default withLazyLoading(() => {\n    return import (/* webpackChunkName: \"ConCard\" */\n    \"../../containers/ConCard.js\")\n}, Loading());"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "模拟 call apply bind的实现",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// call\n\nFunction.prototype.myCall = function (context) {\n  var context = context || window\n  // 给 context 添加一个属性\n  // getValue.call(a, 'yck', '24') => a.fn = getValue\n  context.fn = this\n  // 将 context 后面的参数取出来\n  var args = [...arguments].slice(1)\n  // getValue.call(a, 'yck', '24') => a.fn('yck', '24')\n  var result = context.fn(...args)\n  // 删除 fn\n  delete context.fn\n  return result\n}\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// apply \n\nfunction.prototype.myApply = function (context) {\n  var context = context || window\n  context.fn = this\n\n  var result\n  // 需要判断是否存储第二个参数\n  // 如果存在，就将第二个参数展开\n  if (arguments[1]) {\n    result = context.fn(...arguments[1])\n  } else {\n    result = context.fn()\n  }\n\n  delete context.fn\n  return result\n}\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "Function.prototype.myBind = function (context) {\n  if (typeof this !== 'function') {\n    throw new TypeError('Error')\n  }\n  var _this = this\n  var args = [...arguments].slice(1)\n  // 返回一个函数\n  return function F() {\n    // 因为返回了一个函数，我们可以 new F()，所以需要判断\n    if (this instanceof F) {\n      return new _this(...args, ...arguments)\n    }\n    return _this.apply(context, args.concat(...arguments))\n  }\n}\n"
+    }
+  ]
+}

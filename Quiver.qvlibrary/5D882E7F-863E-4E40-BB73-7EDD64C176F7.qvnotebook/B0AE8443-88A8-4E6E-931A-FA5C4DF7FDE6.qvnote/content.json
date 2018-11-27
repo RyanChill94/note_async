@@ -1,0 +1,10 @@
+{
+  "title": "flattenDeep",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const flattenDeep = arr => Array.isArray(arr) \n? arr.reduce((a,b)=>[...a,...flattentenDeep(b)]. [])\n: [arr]"
+    }
+  ]
+}

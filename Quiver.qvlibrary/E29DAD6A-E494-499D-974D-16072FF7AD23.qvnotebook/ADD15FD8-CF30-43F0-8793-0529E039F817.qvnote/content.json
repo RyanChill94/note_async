@@ -1,0 +1,38 @@
+{
+  "title": "排序算法总结",
+  "cells": [
+    {
+      "type": "text",
+      "data": "术语<div>1 稳定性&nbsp;</div><div>2.内排序 都在内存中完成</div><div>&nbsp; 外排序 数据通过磁盘和内存中传输才能完成</div><div>3.时间复杂度&nbsp;</div><div>&nbsp; 空间复杂度</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/* \n  1. 冒泡排序\n*/\n\nfunction bubbleSort(arr){\n  var len = arr.length;\n  for(var i = 0 ; i < len ; i++){\n    for(var j = 0; j< len - i + 1 ; j++){\n      // 降序\n      if(arr[j] < arr[j+1]){\n        [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n  }\n  return arr;\n}\n\n// 改进版 记录每一趟的交换位置\nfunction bubbleSort2(arr){\n  var i = arr.length - 1;\n  while(i > 0){\n    var pos = 0;\n    for(var j = 0; j < i; j++ ){\n      if(arr[j] < arr[j+1]){\n         [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n    i = pos; // 把最后一次交换的位置保存起来 减少循环次数\n  }\n}\n\n// 改进版 每一次进行正向和反向冒泡，得出最大最小值\nfunction bubbleSort3(arr){\n  var low = 0;\n  var high = arr.length - 1;\n  var tmp, j;\n  while( low < high){\n    for(j = low ; j< high; ++j){\n      // 正向冒泡\n      if( arr[j] > arr[j+1]){\n          [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n    --high;\n    \n    for(j = high; j>low; --j){\n      if(arr[j] < arr[j-1]){\n         [arr[j-1],arr[j]] = [arr[j],arr[j-1]];\n      }\n    }\n    ++low;\n  }\n  \n  return arr;\n}\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 选择排序\nfunction selectionSort(arr){\n  var len  = arr.length;\n  var minIndex;\n  for(var i = 0; i<len;i++){\n    minIndex = i ;\n    for(var j = i+1; j< len ; j++){\n      if(arr[j] < arr[minIndex]){\n        minIndex = j;\n      }\n    }\n    [arr[i],arr[minIndex]] = [arr[minIndex],arr[i]];\n  }\n  return arr;\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 插入排序\n// 类似于扑克牌 每次拿出一个元素 从已经排序的数组中从后向前排序\nfunction insertionSort(arr) {\n  if(Object.prototype.toString.call(arr) !== '[Object Array]'){\n    throw new Error('类型错误')\n  }\n  \n  for(var i = 1 ; i < arr.length ; i++ ){\n    // 第一个已经默认有序 所以i从1开始\n    var key = array[i]; \n    var j = i - 1;\n    while(j >= 0 && array[j] > key){\n      // 一旦 j之前的数组有比当前排序key值大的情况\n      // 将这个值后移一位 j最大为i值 不用担心会覆盖未排序数组\n      arr[j+1] = arr[j];\n      j--; // 继续向前比较\n    }\n    arr[j+1] = key; \n  }\n  \n  return arr;\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 希尔排序\nfunction shellSort(arr) {\n    var len = arr.length,\n        temp,\n        gap = 1;\n    console.time('希尔排序耗时:');\n    while(gap < len/5) {          //动态定义间隔序列\n        gap =gap*5+1;\n    }\n    for (gap; gap > 0; gap = Math.floor(gap/5)) {\n        for (var i = gap; i < len; i++) {\n            temp = arr[i];\n            for (var j = i-gap; j >= 0 && arr[j] > temp; j-=gap) {\n                arr[j+gap] = arr[j];\n            }\n            arr[j+gap] = temp;\n        }\n    }\n    console.timeEnd('希尔排序耗时:');\n    return arr;\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// quick Sort\nfunction quickSort(arr){\n  if(arr.length <= 1) return arr;\n  var pivotIndex = Math.floor(arr.length / 2);\n  var pivot = arr.splice(pivotIndex, 1)[0];\n  var left = [];\n  var right = [];\n  for (var i = 0; i< arr.length; i++){\n    if(arr[i] < pivot){\n      left.push(arr[i]);\n    }else{\n      right.push(arr[i]);\n    }\n  }\n  \n  return quickSort(left).concat([pivot], quickSort(right));\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

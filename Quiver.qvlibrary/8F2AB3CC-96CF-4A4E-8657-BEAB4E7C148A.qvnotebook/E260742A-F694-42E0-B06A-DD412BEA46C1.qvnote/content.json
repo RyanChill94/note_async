@@ -1,0 +1,10 @@
+{
+  "title": "async_await",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 返回一个字符串\nfunction getSomething() {\n    return \"something\";\n}\n\n// 添加async 关键字之后会包装成一个promise\nasync function testAsync() {\n    return Promise.resolve(\"hello async\");\n}\n\nasync function test() {\n    const v1 = await getSomething();\n    const v2 = await testAsync();\n    console.log(v1, v2);\n}\n\ntest();"
+    }
+  ]
+}

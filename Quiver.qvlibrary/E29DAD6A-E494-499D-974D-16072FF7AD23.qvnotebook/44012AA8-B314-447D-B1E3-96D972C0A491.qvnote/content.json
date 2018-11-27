@@ -1,0 +1,18 @@
+{
+  "title": "深拷贝 浅拷贝",
+  "cells": [
+    {
+      "type": "text",
+      "data": "浅拷贝<div>1. Object.assign</div><div><br></div><div>2. 展开运算符</div><div><br></div><div>3. Code?</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": "深拷贝<div>1. JSON.parse(JSON.stringify)</div><div><br></div><div>Bug:</div><div>1. 忽略undefined</div><div>2. 不能拷贝函数</div><div>3. 不能解决循环引用</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let obj = {\n  a: 1,\n  b: {\n    c: 2,\n    d: 3,\n  },\n}\nobj.c = obj.b\nobj.e = obj.a\nobj.b.c = obj.c\nobj.b.d = obj.b\nobj.b.e = obj.b.c\nlet newObj = JSON.parse(JSON.stringify(obj)) // TypeError: Converting circular structre to JSON\nconsole.log(newObj)  "
+    }
+  ]
+}
