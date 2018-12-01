@@ -12,7 +12,21 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "let obj = {\n  a: 1,\n  b: {\n    c: 2,\n    d: 3,\n  },\n}\nobj.c = obj.b\nobj.e = obj.a\nobj.b.c = obj.c\nobj.b.d = obj.b\nobj.b.e = obj.b.c\nlet newObj = JSON.parse(JSON.stringify(obj)) // TypeError: Converting circular structre to JSON\nconsole.log(newObj)  "
+      "data": "let obj = {\n  a: 1,\n  b: {\n    c: 2,\n    d: 3,\n  },\n}\nobj.c = obj.b\nobj.e = obj.a\nobj.b.c = obj.c\nobj.b.d = obj.b\nobj.b.e = obj.b.c\nlet newObj = JSON.parse(JSON.stringify(obj)) // TypeError: Converting circular structre to JSON\nconsole.log(newObj)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// stack overflow version\nconst copy = obj => {\n  if(!obj) return obj\n  let v;\n  let _clone = Array.isArray(obj) ? [] : {};\n  for( const k in obj) {\n    v = obj[k];\n    _clone[k] = typeof v === 'object' ? copy(v) : v;\n  }\n  return _clone;\n}\n\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// more ES6 Way\nfunction deepClone(obj, hash = new WeakMap()) {\n    if (Object(obj) !== obj) return obj; // primitives\n    if (obj instanceof Set) return new Set(obj); // See note about this!\n    if (hash.has(obj)) return hash.get(obj); // cyclic reference\n    const result = obj instanceof Date ? new Date(obj)\n                 : obj instanceof RegExp ? new RegExp(obj.source, obj.flags)\n                 : obj.constructor ? new obj.constructor() \n                 : Object.create(null);\n    hash.set(obj, result);\n    if (obj instanceof Map)\n        Array.from(obj, ([key, val]) => result.set(key, deepClone(val, hash)) );\n    return Object.assign(result, ...Object.keys(obj).map (\n        key => ({ [key]: deepClone(obj[key], hash) }) ));\n}\n\n// Sample data\nvar p = {\n  data: 1,\n  children: [{\n    data: 2,\n    parent: null\n  }]\n};\np.children[0].parent = p;\n\nvar q = deepClone(p);\n\nconsole.log(q.children[0].parent.data); // 1"
+    },
+    {
+      "type": "text",
+      "data": ""
     }
   ]
 }

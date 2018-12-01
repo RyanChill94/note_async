@@ -1,0 +1,10 @@
+{
+  "title": "Native ajax ",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const ajax = {};\najax.httpRequest = () => {\n    //判断是否支持XMLHttpRequest对象\n    // Chrome, Firefox, Opera 8.0+, Safari\n    if (window.XMLHttpRequest) {\n        return new XMLHttpRequest();\n    }\n    //兼容IE浏览器\n    const versions = [\n        \"MSXML2.XmlHttp.6.0\",\n        \"MSXML2.XmlHttp.5.0\",\n        \"MSXML2.XmlHttp.4.0\",\n        \"MSXML2.XmlHttp.3.0\",\n        \"MSXML2.XmlHttp.2.0\",\n        \"Microsoft.XmlHttp\"\n    ];\n    //定义局部变量xhr,储存IE浏览器的ActiveXObject对象\n    let xhr;\n    for (let i = 0; i < versions.length; i++) {\n        try {\n            xhr = new ActiveXObject(versions[i]);\n            break;\n        } catch (e) {}\n    }\n    return xhr;\n};\n\najax.send = (url, callback, method, data, async = true) => {\n\n    let httpRequest = ajax.httpRequest();\n    //初始化HTTP请求\n    httpRequest.open(method, url, async);\n    //onreadystatechange函数对象\n    httpRequest.onreadystatechange = () => {\n        //readyState 的值等于4，从服务器拿到了数据\n        if (httpRequest.readyState == 4) {\n            //回调服务器响应数据\n            callback(httpRequest.responseText)\n        }\n    };\n    if (method == 'POST') {\n        //给指定的HTTP请求头赋值\n        httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');\n    }\n    //发送HTTP请求\n    httpRequest.send(data);\n};\n//实现GET请求\najax.get = (url, data, callback, async= true) => {\n    const query = [];\n    for (let key in data) {\n        query.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`);\n    }\n    ajax.send(`${url}${query.length ? `?${query.join('&')}` : ''}`, callback, 'GET', null, async);\n};\n//实现POST请求\najax.post = (url, data, callback, async = true) => {\n    const query = [];\n    for (let key in data) {\n        query.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`);\n    }\n    ajax.send(url, callback, 'POST', query.join('&'), async);\n};"
+    }
+  ]
+}

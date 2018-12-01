@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "// arrow function 的 this 指向是定义的时候确定的\n// 在绑定定时器/窗口事件的时候不需要 let _this = this\n\nconst currentUrl = _ => window.location.href;\n\nconst difference = (arr, values) => arr.filter(v => !values.includes(v));\n\n// 如果有多条语句 就要使用{} 包裹，并且增加return 语句\nconst isEven = num => Math.abs(num) % 2 === 0;\n\n// equal\nconst isEven = num => { return Math.abs(num) % 2 === 0 }\n"
+      "data": "// arrow function 的 this 指向是定义的时候确定的\n// 在绑定定时器/窗口事件的时候不需要 let _this = this\n\nconst currentUrl = _ => window.location.href;\n\nconst difference = (arr, values) => arr.filter(v => !values.includes(v));\n\n// 如果有多条语句 就要使用{} 包裹，并且增加return 语句\nconst isEven = num => Math.abs(num) % 2 === 0;\n\n// equal\nconst isEven = num => { return Math.abs(num) % 2 === 0 }\n\n\n\n// arrow function 弊端\n// 箭头函数里面的this 是函数定义的时候确定的，一旦我们的this是想取调用的时候的this.就会产生问题\n// eg debounce\n\nfunction debounce(func, wait) {\n  let timeout\n  // corret way\n  // function (...args) {\n  return (...args) => {\n    const context = this // this 被确定好了\n    clearTimeout(timeout)\n    timeout = setTimeout(() => func.apply(context, args), wait)\n  }\n}\n\n\nfunction sayHello() {\n  console.log('My name is', this.name)\n}\n\nconst amy = {\n  name: 'amy',\n  speak: debounce(sayHello),\n}\n\namy.speak() // 'My name is', undefined"
     }
   ]
 }

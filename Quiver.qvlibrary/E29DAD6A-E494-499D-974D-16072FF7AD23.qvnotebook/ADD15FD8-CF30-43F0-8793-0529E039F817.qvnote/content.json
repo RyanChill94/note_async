@@ -28,7 +28,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "// quick Sort\nfunction quickSort(arr){\n  if(arr.length <= 1) return arr;\n  var pivotIndex = Math.floor(arr.length / 2);\n  var pivot = arr.splice(pivotIndex, 1)[0];\n  var left = [];\n  var right = [];\n  for (var i = 0; i< arr.length; i++){\n    if(arr[i] < pivot){\n      left.push(arr[i]);\n    }else{\n      right.push(arr[i]);\n    }\n  }\n  \n  return quickSort(left).concat([pivot], quickSort(right));\n}"
+      "data": "// quick Sort\nfunction quickSort(arr){\n  if(arr.length <= 1) return arr;\n  var pivotIndex = Math.floor(arr.length / 2);\n  var pivot = arr.splice(pivotIndex, 1)[0];\n  var left = [];\n  var right = [];\n  for (var i = 0; i< arr.length; i++){\n    if(arr[i] < pivot){\n      left.push(arr[i]);\n    }else{\n      right.push(arr[i]);\n    }\n  }\n  \n  return quickSort(left).concat([pivot], quickSort(right));\n}\n\nfunction quickSort(a: number[]): any {\n    return a.length <= 1\n        ? a\n        : quickSort(a.slice(1).filter(item => item <= a[0])).concat(\n              a[0],\n              quickSort(a.slice(1).filter(item => item > a[0]))\n          )\n}"
     },
     {
       "type": "text",
