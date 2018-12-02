@@ -1,0 +1,14 @@
+{
+  "title": "*数组划分数据",
+  "cells": [
+    {
+      "type": "text",
+      "data": "不使用原生数组方法 只使用循环 将数组以一项为基准进行分隔"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const partition = (arr) => {\n  const swap = (a, i, j) => [a[i], a[j]] = [a[j], a[i]]\n  \n  const v = arr[0]\n  let i = 0\n  let k = 1\n  let j = arr.length - 1\n  \n  while(k <= j) {\n    if(arr[k] < v) swap(arr, i++, k++)\n    else if(arr[k] > v) swap(arr, j--, k)\n    else k++\n  }\n}\n\n\n// 三路快排\nconst swap = (a, i, j) => [a[i], a[j]] = [a[j], a[i]]\n\nconst partition3way = (a, lo = 0, hi = a.length - 1) => {\n  let lt = lo, gt = hi\n  const v = a[lo]\n  let i = lo\n  while (i <= gt) {\n    if (a[i] < v) swap(a, lt++, i++)\n    else if (a[i] > v) swap(a, i, gt--)\n    else i++\n  }\n}\n\n\nconst partition3way = (arr) => {\n  var p = 0\n  var v = arr[0]\n  var len = arr.length\n  for(let i = 1; i < len; i++) {\n    if(v > arr[i]) {\n      //与小的数换位\n      arr[p] = arr[i]\n      arr[i] = v\n      //p+1可能是一个与参考值相等的数\n      p++\n    }else if(v < arr[i]){\n      //后面大的数与后面小的数换位\n      for(var j = i + 1; j < len; j++) {\n        if(arr[j] <= v) {\n          [arr[i], arr[j]] = [arr[j], arr[i]]\n          //如果进行了交互，i不后移\n          i--\n          break\n        }\n      }\n      //后面已经没有更小的数，计算结束\n      if(j === len) return\n    }\n  }\n}"
+    }
+  ]
+}

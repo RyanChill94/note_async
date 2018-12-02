@@ -1,0 +1,10 @@
+{
+  "title": "监听数组变化",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function ObserverableArra() {\n  return new Proxy([], {\n    get(target, key){\n      const shouldObserver = [\n        'push',\n        'pop',\n        'shift',\n        'unshift',\n        'splice',\n        'sort',\n        'reverse'\n      ]\n      \n      shouleObserver.indexOf(key) > -1 && console.log(key);\n      return target[key];\n    }\n  })\n}"
+    }
+  ]
+}

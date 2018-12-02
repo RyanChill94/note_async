@@ -1,0 +1,24 @@
+{
+  "title": "isSameSet",
+  "cells": [
+    {
+      "type": "text",
+      "data": "判断两个set是否相等<div><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const isSameSet = (s1, s2) {\n  return [...s1].every(v => s2.has(v)) && [...s2].every(v => s1.has(v));\n} "
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const isSameSet = (s1, s2) => {\n  // 如果size都不一样就直接比了\n  if(s1.size !== s2.size){\n    return false;\n  }\n  return [...s1].every(i => s2.has(i));\n}\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const isSameSet = (s1, s2) => {\n  // 利用 set 没有重复元素的特性 \n  // 如果合并完的 set 的 大小与原来一直 那么肯定是相同的set\n  let s = new Set([...s1, ...s2]);\n  return s.size === s1.size && s.size === S2.size\n}"
+    }
+  ]
+}

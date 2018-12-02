@@ -1,0 +1,10 @@
+{
+  "title": "下划线转驼峰",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var toCamelCaseVar = (variable)=>/* TODO */\n{\n    return variable.replace(/_+[a-zA-Z]/g, (m,i)=>{\n        // m 为捕获组\n        // i 为下标\n        if (i)\n           // 如果是开头就不处理\n            return (m.match(/[a-zA-Z]/)[0].toUpperCase());\n        else\n            return m;\n    }\n    )\n}\n\ntoCamelCaseVar('_m8_sss_frined');\n\n"
+    }
+  ]
+}

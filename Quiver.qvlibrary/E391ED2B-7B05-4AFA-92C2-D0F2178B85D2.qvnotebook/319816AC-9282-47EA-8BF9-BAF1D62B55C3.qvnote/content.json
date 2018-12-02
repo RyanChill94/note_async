@@ -1,0 +1,10 @@
+{
+  "title": "Object.is 实现",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const is = (x, y) => {\n  if (Number.isNaN(x) && Number.isNaN(y)) {\n    return true;\n  }\n  \n  if (x === 0 && y === 0) {\n    return 1 / x === 1 / y;\n  }\n  \n  return x === y;\n}\n\n\n\nfunction isNumber(n) {\n  return !isNaN(parseFloat(n)) && isFinite(n);\n}"
+    }
+  ]
+}

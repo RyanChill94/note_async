@@ -1,0 +1,30 @@
+{
+  "title": "Proxy",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(51, 51, 51); font-family: Verdana, Arial; font-size: 15.36px; font-variant-ligatures: normal; orphans: 2; widows: 2;\">Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。</span>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var handler = {\n  get: function(target, name) {\n    if (name === 'prototype') {\n      return Object.prototype;\n    }\n    return 'Hello, ' + name;\n  },\n\n  apply: function(target, thisBinding, args) {\n    return args[0];\n  },\n\n  construct: function(target, args) {\n    return {value: args[1]};\n  }\n};\n\nvar fproxy = new Proxy(function(x, y) {\n  return x + y;\n}, handler);\n\nfproxy(1, 2) // 1\nnew fproxy(1, 2) // {value: 2}\nfproxy.prototype === Object.prototype // true\nfproxy.foo === \"Hello, foo\" // true"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/2519B1196322A62EF802B3CEA716926B.jpg\" width=\"713\" height=\"896\">"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

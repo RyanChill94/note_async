@@ -1,0 +1,14 @@
+{
+  "title": "*优先队列",
+  "cells": [
+    {
+      "type": "text",
+      "data": "// 优先队列是一种元素带权重的队列 删除元素的时候会把优先级最高的元素删除掉"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// test case \nconst pq = new PriorityQueue();\npq.add(1);\npq.add(2);\npq.add(3);\n\npq.remove() // => 3\npq.remove() // => 2\npq.remove() // => 1\n\n\nclass PriorityQueue {\n  constructor(){\n    this.arr = [];\n  }\n  add (num) {\n    /* TODO */\n    this.arr.push(num);\n  }\n  \n  remove () {\n    /* TODO */\n    var num = Math.max(...this.arr);\n     this.arr.splice(this.arr.indexOf(num),1);\n    return num;\n  }\n}\n\n\n// 每次add的时候使用二分查找\nclass PriorityQueue {\n  constructor () {\n    this.queue = []\n  }\n  add (e) {\n    const len = this.queue.length\n    if (len === 0) return this.queue.push(e)\n    if (len === 1) return this.queue[e > this.queue[0] ? 'unshift' : 'push'](e)\n    let v = Math.floor(len/2)\n    if (e > this.queue[v]) {\n        for (let i = 0; i <= v; i++) {\n            if (e >= this.queue[i]) {\n                this.queue.splice(i, 0, e)\n                break\n            }\n        }\n    } else {\n        for (let i = len; i >= v; i--) {\n            if (e <= this.queue[i]) {\n                this.queue.splice(i + 1, 0, e)\n                break\n            }\n        }\n    }\n}\n  remove () {\n    return this.queue.shift()\n  }\n}"
+    }
+  ]
+}

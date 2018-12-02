@@ -1,0 +1,27 @@
+{
+  "title": "*数组中的数据归并",
+  "cells": [
+    {
+      "type": "text",
+      "data": "其实就是归并排序中的最后一步<div>相当于吧两个已经相对有序的数组进行合并</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "[10, 21, 32, 11, 16, 40] // 从 0 和 3 开始升序\n[1, 5, 10, 11, 3, 4, 8, 12, 30] // 0 和 4 开始升序\n\nmerge(arr) => 完全升序"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 感觉没有什么意义 相对有序没有利用上\nconst merge = arr => {\n  arr.forEach((v, i) => {\n    let min = Math.min.apply(null, arr.slice(i));\n    let index = arr.indexOf(min, i);\n    arr.splice(index,1);\n    arr.splice(i,0,min);\n  })\n}\n\n\nconst merge = (arr) => {\n\tlet i = 0, len = arr.length, mid = len >> 1 , n = mid, arr2 = []\n\twhile(i < n && mid < len) {\n\t\tif(arr[i] < arr[mid]){\n\t\t  arr2.push(arr[i++])\n\t\t} else {\n\t\t\tarr2.push(arr[mid++])\n\t\t}\n\t}\n\tif(mid == len) {\n\t\tarr.splice(0, 0, ...arr.splice(- len + n))\n\t}\n\tarr.splice(0, arr2.length, ...arr2)\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

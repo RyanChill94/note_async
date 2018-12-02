@@ -1,0 +1,10 @@
+{
+  "title": "使 Class 支持 for of",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Box {\n  constructor(arr) {\n\tthis[Symbol.iterator] = function* (){\n\t\tlet len = arr.length, i = 0\n\t\twhile (i < len) {\n\t\t\tyield arr[i++]\n\t\t}\n\t}\n   }\n}"
+    }
+  ]
+}

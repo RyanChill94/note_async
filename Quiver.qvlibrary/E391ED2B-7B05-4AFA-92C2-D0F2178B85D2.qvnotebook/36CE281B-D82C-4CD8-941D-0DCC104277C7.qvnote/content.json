@@ -1,0 +1,14 @@
+{
+  "title": "*dp",
+  "cells": [
+    {
+      "type": "text",
+      "data": "相邻的两个数不能相加 求数组最大值<div><br></div><div>rob([1,2,3]) // =&gt; 4</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 状态转移方程\n// f(k) = max(f(k – 2) + Ak, f(k – 1))\nconst rob = (nums) => {\n  let prevMax = 0;\n  let curMax = 0;\n  nums.forEach(n => {\n    let temp = curMax;\n    curMax = Math.max(prevMax + n, curMax);\n    prevMax = temp;\n  })\n  return curMax;\n}\n\n\nconst rob = (nums) => {\n  let masterChallenger = 0; //总额数擂主\n  let signUped = 0; //报名挑战者\n  nums.forEach((item)=>{\n    const newChallenger = signUped; //newChallenger是正在参赛的挑战者\n    signUped = item + masterChallenger; //更新报名挑战者\n    masterChallenger = Math.max(masterChallenger, newChallenger); //比较大小决定新的擂主;\n  });\n  return Math.max(masterChallenger, signUped); //最后一次报名的挑战者的挑战赛不会在forEach循环中进行，所以手动比一次，并作为结果返回。\n}"
+    }
+  ]
+}

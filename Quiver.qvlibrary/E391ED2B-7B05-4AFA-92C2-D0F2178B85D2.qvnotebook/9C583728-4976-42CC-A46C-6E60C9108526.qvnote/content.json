@@ -1,0 +1,10 @@
+{
+  "title": "进制颜色值转RGB",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const hexToRGB = (hex) => {\n  const regex = /^\\#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/;\n  if(!regex.test(hex)){\n    return null;\n  }\n  let h = hex.slice(1);\n  const result = [];\n  if(h.length === 3) h = h.replace(/(.)/g,'$&$&');\n  h.replace(/../g, color => result.push(parseInt(color, 16)));\n  \n  return `rgb(${result.join(', ')})`;\n}"
+    }
+  ]
+}

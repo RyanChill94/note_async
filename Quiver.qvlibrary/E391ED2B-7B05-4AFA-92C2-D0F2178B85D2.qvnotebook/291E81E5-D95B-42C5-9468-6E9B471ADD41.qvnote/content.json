@@ -1,0 +1,26 @@
+{
+  "title": "获取子元素的属性",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const getChildAttributes = (dom, attrStr) => \n[...dom.children].map(x => x.getAttribute(attrStr))\n\n\nconst getChildAttributes = (dom, attrStr) => {\n  lists = [];\n  for(let item of dom.children) {\n  \tlists.push(item.getAttribute(attrStr))\n  }\n  return lists;\n}\n"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "filterMap",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 给原生的map添加过滤方法\n\nconst m = new Map([['Jerry', 12], ['Jimmy', 13], ['Tomy', 14]])\n\nm.filterKeys((key) => key.startsWith('J')) // => Map { Jerry => 12, Jimmy => 13 }\nm.filterValues((val) => val >= 13) // => Map { Jimmy => 13, Tomy => 14  }\n\n// 原有的 map 保持不变\nconsole.log(m) // => Map { Jerry => 12 , Jimmy => 13, Tomy => 14 }"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "Map.prototype.filterKeys = function(fn) {\n  // 解构成数组然后再过滤\n  return new Map([...this].filter(([k, v]) => fn(k)));\n}\n\nMap.prototype.filterValues = function(fn) {\n  return new Map([...this].filter(([k, v]) => fn(v)));\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

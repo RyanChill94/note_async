@@ -1,0 +1,10 @@
+{
+  "title": "Extend_name.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const extname = (filename) => {\n  return filename.lastIndexOf('.') > 0 ? filename.slice(filename.lastIndexOf('.')) : '';\n}\n\nconst extname = (filename) => \nfilename.match(/\\.[^.]+$/) ? filename.match(/\\.[^.]+$/)[0] : ''"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "数组去重",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// old fashion\nconst unique = arr => {\n  const result = [];\n  const obj = {};\n  for(let i = 0 , len = arr.length; i < len ; i++){\n     let key = arr[i] + (typeof arr[i]);\n     if( !obj[key]){\n        obj[key] = true;\n        result.push(arr[i]);\n     }\n  }\n  \n  return result\n}\n\nconst unique = arr => {\n  return arr.filter((v,i) => arr.indexOf(v) === index)\n}\n\n// ES6 way\nconst unique = arr => Array.from(new Set(arr));\n\nconst unique = arr => ([...new Set(arr)])\n\nconst unique = arr => {\n  cosnt seen = new Map();\n  return arr.filter( num => !seen.has(num) && seen.set(num, 1))\n}\n\n\n\n"
+    }
+  ]
+}

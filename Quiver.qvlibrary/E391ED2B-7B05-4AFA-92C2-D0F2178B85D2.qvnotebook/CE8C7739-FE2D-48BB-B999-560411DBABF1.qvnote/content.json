@@ -1,0 +1,14 @@
+{
+  "title": "字体高亮函数",
+  "cells": [
+    {
+      "type": "text",
+      "data": "完成 highLight 函数，可以吧模板字符串的插入内容替换掉 显示显示为红色<div><br></div><div>highLight`Hello ${yourName}. I am ${myName}`</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 模板字符串汇总的参数会变为函数的参数\nconst highlight = （...args） => {\n  \n  // args\n  // (3) [Array(3), \"ScriptOJ\", \"Jerry\"]\n  // 0: (3) [\"Hello, \", \". I am \", \".\", raw: Array(3)]\n  // 1: \"ScriptOJ\"\n  // 2: \"Jerry\"\n  \n  let s = '';\n  let a = args[0];\n  for(let i = 0 ; i < a.length - 1; i++){\n    s += `${a[i]}<span class='red'>${args[i+1]}<span>`\n  }\n  return s + a[a.length - 1];\n}\n\n\nconst highlight = (literals, ...values) => {\n  let output = '';\n  for(var i = 0 ; i < values.length ; i ++){\n    output += literals[i] + `<span class='red'>${values[i]}</span>`\n  }\n  \n  output += literals[i];\n  \n  return output;\n}\n\n"
+    }
+  ]
+}

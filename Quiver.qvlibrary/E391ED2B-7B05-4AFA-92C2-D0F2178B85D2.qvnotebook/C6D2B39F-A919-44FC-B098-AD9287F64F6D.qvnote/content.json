@@ -1,0 +1,10 @@
+{
+  "title": "数组拍平 generator",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const numbers = flatten2([1, [[2], 3, 4], 5])\nnumbers.next().value // => 1\nnumbers.next().value // => 2\nnumbers.next().value // => 3\nnumbers.next().value // => 4\nnumbers.next().value // => 5\n\n\nfunction* flatten2(arr) => {\n  arr = arr.length ? arr.toString().split(',').map(x => Number.parsetnt(x)): []\n  \n  for (let o in arr){\n    yield o\n    \n  }\n}\n\nfunction* flat(arr){\n  let result = [];\n  for(let i = 0 ; i < arr.length ; i++){\n    if(Array.isArray(arr[i])){\n      yield *flat(arr[i]);\n    }else{\n      result.push(arr[i]);\n    }\n  }\n}\n\n\nfunction* flat(arr){\n  for(let o of arr){ //\n    Array.isArray(o) ? yield* flat(o) : yield o ;\n  }\n}"
+    }
+  ]
+}

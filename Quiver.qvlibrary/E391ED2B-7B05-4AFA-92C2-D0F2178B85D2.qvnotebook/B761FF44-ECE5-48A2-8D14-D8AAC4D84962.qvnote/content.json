@@ -1,0 +1,36 @@
+{
+  "title": "单例模式",
+  "cells": [
+    {
+      "type": "text",
+      "data": "singleton<div>单例模式</div><div>保证系统中某一个类在任何情况下实例化都获得同一个实例</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const root1 = new Root()\nconst root2 = new Root()\nconst root3 = new Root()\n\nroot1 === root2 // true\nroot2 === root3 // true"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "实现一个singletonify 方法\n传入自定义类，返回一个新的单例模式的类\n\nclass A () {}\nconst SingleA = singletonify(A)\n\nconst a1 = new SingleA()\nconst a2 = new SingleA()\nconst a3 = new SingleA()\n\na1 === a2 // => true\na2 === a3 // => true\n\n// 返回的类的实例也是原来类的实例\na1 instanceof A // => true\na1 instanceof SingleA // => true\n\n// 自定义类属性保持一致\nclass A () {}\nA.staticMethod = () => {}\n\nconst SingleA = singletonify(A)\nSingleA.staticMethod === A.staticMethod // => true\n"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 使用 proxy\nconst singletonify = fn => {\n  const one = new fn();\n  return new Proxy(fn, {\n    construct(target, arguments, newTarget){\n      return one;\n    }\n  })\n}\n\n// 使用非标准的 __proto__\n\nconst singletonify = originalClass => {\n  const one = new OriginalClass();\n  class NewClass extends OriginalClass {\n     constructor(){\n      super();\n      return one;\n    } \n  }\n  \n  // 将 One 的原型链 指向 NewClass 的原型对象\n  \n  // 不推荐\n  one.__proto__ = NewClass.prototype;\n  \n  // better\n  Object.setPrototypeOf(one, NewClass.protptype);\n  \n  return NewClass;\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

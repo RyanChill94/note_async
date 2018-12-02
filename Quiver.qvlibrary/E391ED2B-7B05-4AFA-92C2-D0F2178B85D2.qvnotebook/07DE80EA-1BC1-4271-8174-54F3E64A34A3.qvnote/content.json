@@ -1,0 +1,10 @@
+{
+  "title": "解析查询字符串",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const parseQueryString = (url) => {\n  if (typeof url === 'string'){\n    let obj = {}\n    const paramPart = url.replace(/#\\S*/, '').match(/\\?[^#]+/);\n    if (paramPart === null) {\n      return {}\n    }\n    const paramGroup = paramPart[0].substr(1).split('&')\n    for (let i = 0, length = paramGroup.length; i < length; i++){\n      let name = paramGroup[i].split('=')[0];\n      let value = paramGroup[i].match(/[=]\\S+/)[0].substr(1);\n      obj[name] = value\n    }\n    \n    return obj\n  } else {\n    throw new Error('请传入字符串')\n  }\n}\n"
+    }
+  ]
+}

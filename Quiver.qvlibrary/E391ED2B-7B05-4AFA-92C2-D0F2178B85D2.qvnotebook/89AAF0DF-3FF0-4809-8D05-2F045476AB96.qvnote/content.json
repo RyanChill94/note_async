@@ -1,0 +1,14 @@
+{
+  "title": "flikerProps",
+  "cells": [
+    {
+      "type": "text",
+      "data": "将属性在可枚举到不可以枚举之间切换"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const flikerProps = obj => {\n  const a = Object.getOwnPropertyNames(obj); // 所有属性\n  const b = Object.keys(obj); // 所有可以枚举的属性\n  for( let i = 0 ; i < a.length; i++){\n    Object.defineProperty(obj, a[i], {\n      enumerable: b.indexOf(a[i]) === -1\n    })\n  }\n}\n\n\nconst flikerProps = (obj) => {\n  for (let [k, v] of Object.getOwnPropertyNames(obj).entries()) {\n    Object.defineProperty(obj, v, {\n      enumerable: !Object.getOwnPropertyDescriptor(obj, v).enumerable\n    }) \n  }\n}"
+    }
+  ]
+}

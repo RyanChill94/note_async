@@ -1,0 +1,19 @@
+{
+  "title": "exchange",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 题目\n\nclass A {\n  constructor (name) {\n    this.name = name\n  }\n  sayHi () {\n    return `I am ${this.name}.`\n  }\n}\n\nclass B {\n  constructor (name) {\n    this.name = name\n  }\n  sayHi () {\n    return `This is ${this.name}.`\n  }\n}\n\n\nconst a = new A('Jerry') \nconst b = new B('Lucy')\n\na.sayHi() // => 'I am Jerry.'\nb.sayHi() // => 'This is Lucy.'\n\na instanceof B // => false\nb instanceof A // => false\n\nexchange(a, b)\na.sayHi() // => 'This is Jerry.'\nb.sayHi() // => 'I am Lucy.'\n\na instanceof B // => true\nb instanceof A // => true\n\nexchange(a, b)\na.sayHi() // => 'This is Jerry.'\nb.sayHi() // => 'I am Lucy.'\n\nconst c = new A('Tomy')\nc.sayHi() // => 应该返回 'I am Tomy.'"
+    },
+    {
+      "type": "text",
+      "data": "<div><br></div><div><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const exchange = (a, b) => {\n  // 交换原型就可以实现\n  const protos = [a, b].map(o => Object.getPrototypeOf(o)); //这里的分号是必要的\n  [b, a].forEach((o, i) => Object.setPrototypeOf(o, protos[i]))\n}\n\nconst exchange = (a, b) => {\n  let ap = a.constuctor.prototype;\n  Object.setPrototypeOf(a, b.constructor.prototype)\n  Object.setPrototypeOf(b, ap);\n}\n"
+    }
+  ]
+}

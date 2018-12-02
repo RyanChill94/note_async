@@ -1,0 +1,19 @@
+{
+  "title": "*autoBind",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Person {\n  constructor (name) {\n    this.name = name\n  }\n  sayHi () {\n    console.log(`I am ${this.name}.`)\n  }\n}\nconst jerry = new Person('Jerry')\nconst sayHi = jerry.sayHi  // this 指向丢失 \nsayHi() // => 报错 \n\n\n// make a auto bind\n\nconst BoundPerson = autoBind(Person)\n\nconst jerry = new BoundPerson('Jerry')\nconst sayHi = jerry.sayHi\nsayHi() // => I am Jerry.\n\nconst lucy = new BoundPerson('Lucy')\nconst sayHi = lucy.sayHi\nsayHi() // => I am Lucy.\n\nPerson.prototype.sayGood = function () {\n  console.log(`I am ${this.name}. I am good!`)\n}\n\nconst sayGood = lucy.sayGood\nsayGood() // => I am Lucy. I am good!\n"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 考察 proxy的应用\nconst autoBind = fn => new Proxy(fn, {\n  construct (target, args) {\n    return new Proxy(new fn(...args), {\n      get: (target, key) => {\n        return typeof target[key] === 'function'? target[key].bind(target) : target[key];\n      }\n    })\n  }\n})\n\n\nconst autoBind = (ToBindClass) => {\n  return function(...args) {\n    const self = new ToBindClass(...args);\n    return new Proxy(self, {\n      get(target, key) {\n        const val = Reflect.get(target, key);\n        if (typeof val === 'function') return val.bind(self);\n        else return val;\n      }\n    })\n  }\n}"
+    }
+  ]
+}

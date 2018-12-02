@@ -1,0 +1,10 @@
+{
+  "title": "With async await",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Post extends Component {\n  constructor () {\n    super()\n    this.state = { content: '' }\n  }\n  \n  componentWillMount () {\n    this._loadData()\n  }\n  \n  async _loadData () {\n    this.setState({ content: '数据加载中...' })\n    const content = await getPostData()\n    this.setState({ content })\n  }\n  \n  render () {\n    return (\n      <div>\n        <div className='post-content'>{this.state.content}</div>\n        <button onClick={() => {\n          this._loadData()\n        }}>刷新</button>\n      </div>\n    )\n  }\n}"
+    }
+  ]
+}

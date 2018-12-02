@@ -1,0 +1,14 @@
+{
+  "title": "判断美元符号格式 ",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 以$开头<div>2. 小数保留两位小数 没有小数就不显示小数</div><div>3. 千分位分割</div><div>4. 整数部分从 0 开始， 只会显示一位 0</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 测试用例\n\nisUSDFormat('$1') // => true\nisUSDFormat('$1.0') // => false\nisUSDFormat('$100,000.00') // => true\nisUSDFormat('$0,000.00') // => false\nisUSDFormat('$0.00') // => true\nisUSDFormat('$11,23,345.33') // => false\nisUSDFormat('$1,123,345.33') // => true\n\n\nconst isUSDFormat = str => (/^\\$([1-9]\\d{0,2}(,\\d{3})*|0)(\\.\\d{2})?$/).test(str)\n\nconst isUSDFormat = str => /^\\$(0|([1-9]\\d{0,2}(,\\d{3})*))(\\.\\d{2}?$)/.test(str)\n"
+    }
+  ]
+}

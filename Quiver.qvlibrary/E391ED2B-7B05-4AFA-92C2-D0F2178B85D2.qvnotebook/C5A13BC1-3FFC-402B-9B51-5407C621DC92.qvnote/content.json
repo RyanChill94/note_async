@@ -1,0 +1,10 @@
+{
+  "title": "centerPad",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const centerPad = (str, len, pad) => {\n\tif (len <= str.length || pad.length < 1) {\n\t\treturn str;\n\t}\n\n\tlet strStart = Math.floor((len - str.length) / 2);\n\tlet padMaxLength = strStart + 1;\n\tpad = pad.repeat(Math.floor(padMaxLength / pad.length) + 1);\n\n\n\treturn pad.slice(0, strStart) + str + pad.slice(0, len - strStart - str.length);\n}\n\n\nconst centerPad = (str, len, pad) => {\nlet strLen = str.length,\nhalf = (len - strLen) / 2,\nstart = str.padStart(half + strLen, pad)\nreturn (len - strLen) % 2 != 0 ? start + ''.padEnd(half + 1, pad) : start + ''.padEnd(half, pad)\n}"
+    }
+  ]
+}
