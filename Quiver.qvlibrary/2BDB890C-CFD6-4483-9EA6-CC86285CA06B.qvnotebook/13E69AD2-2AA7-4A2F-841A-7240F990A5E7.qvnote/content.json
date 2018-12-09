@@ -4,7 +4,20 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "function Foo(){\n  this.value = 42;\n}\n\nFoo.prototype = {\n  method:funtion(){}\n}\n\n// 假设Bar为继承Foo的子类 想获取method方法\nfunction Bar() {} \n\n//step 1\n//将父级的实例作为自己的原型对象\nBar.prototype = new Bar()\nBar.prototype.sayHi = function(){ return 'Hi!'}\n注意：此时的Bar原型对象里面的constructor 指向的父级Foo\n\n// 修正构造函数的指向\nBar.prototype.constructor = Bar;\n\nvar test = new Bar()\n\n// 此时原型链的指向为\ntest [Bar 的实例]\n  |___Bar.prototype [Foo 的 实例]\n        { sayHi: func }\n        |__Foo.prototype\n            { method: func }\n            |__Object.prototype\n                { \n                  toString:func \n                  hasOwnProperty:func\n                  isPrototypeOf:func\n                }"
+      "data": "function Foo(){\n  this.value = 42;\n}\n\nFoo.prototype = {\n  method:funtion(){}\n}\n\n// 假设Bar为继承Foo的子类 想获取method方法\nfunction Bar() {} \n\n//step 1\n//将父级的实例作为自己的原型对象\nBar.prototype = new Foo()\n// or\n// 子类续承父类\nBar.prototype = Object.create(Foo.prototype);\n\nBar.prototype.sayHi = function(){ return 'Hi!'}\n注意：此时的Bar原型对象里面的constructor 指向的父级Foo\n\n// 修正构造函数的指向\nBar.prototype.constructor = Bar;\n\nvar test = new Bar()\n\n// 此时原型链的指向为\ntest [Bar 的实例]\n  |___Bar.prototype [Foo 的 实例]\n        { sayHi: func }\n        |__Foo.prototype\n            { method: func }\n            |__Object.prototype\n                { \n                  toString:func \n                  hasOwnProperty:func\n                  isPrototypeOf:func\n                }"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Object create\nconst person = {\n  isHuman: false,\n  printIntroduction: function () {\n    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);\n  }\n};\n\nconst me = Object.create(person);\n\nme.name = \"Matthew\"; // \"name\" is a property set on \"me\", but not on \"person\"\nme.isHuman = true; // inherited properties can be overwritten\n\nme.printIntroduction();\n// expected output: \"My name is Matthew. Am I human? true\"\n\n"
+    },
+    {
+      "type": "text",
+      "data": "<div><img src=\"quiver-image-url/D1FC361850A350C1F8E39B8D82241D07.png\" alt=\"48185513-25833c00-e370-11e8-9939-678da278704d.png\" width=\"618\" height=\"781\"><br></div>"
     }
   ]
 }

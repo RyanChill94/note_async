@@ -8,7 +8,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "/* \n  1. 冒泡排序\n*/\n\nfunction bubbleSort(arr){\n  var len = arr.length;\n  for(var i = 0 ; i < len ; i++){\n    for(var j = 0; j< len - i + 1 ; j++){\n      // 降序\n      if(arr[j] < arr[j+1]){\n        [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n  }\n  return arr;\n}\n\n// 改进版 记录每一趟的交换位置\nfunction bubbleSort2(arr){\n  var i = arr.length - 1;\n  while(i > 0){\n    var pos = 0;\n    for(var j = 0; j < i; j++ ){\n      if(arr[j] < arr[j+1]){\n         [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n    i = pos; // 把最后一次交换的位置保存起来 减少循环次数\n  }\n}\n\n// 改进版 每一次进行正向和反向冒泡，得出最大最小值\nfunction bubbleSort3(arr){\n  var low = 0;\n  var high = arr.length - 1;\n  var tmp, j;\n  while( low < high){\n    for(j = low ; j< high; ++j){\n      // 正向冒泡\n      if( arr[j] > arr[j+1]){\n          [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n    --high;\n    \n    for(j = high; j>low; --j){\n      if(arr[j] < arr[j-1]){\n         [arr[j-1],arr[j]] = [arr[j],arr[j-1]];\n      }\n    }\n    ++low;\n  }\n  \n  return arr;\n}\n"
+      "data": "/* \n  1. 冒泡排序\n*/\n\nfunction bubbleSort(arr){\n  var len = arr.length;\n  for(var i = 0 ; i < len ; i++){\n    for(var j = 0; j< len - i + 1 ; j++){\n      // 降序\n      if(arr[j] < arr[j+1]){\n        [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n  }\n  return arr;\n}\n\n// 改进版 记录每一趟的交换位置\nfunction bubbleSort2(arr){\n  var i = arr.length - 1;\n  while(i > 0){\n    var pos = 0;\n    for(var j = 0; j < i; j++ ){\n      if(arr[j] < arr[j+1]){\n         j = pos;\n         [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n         \n      }\n    }\n    i = pos; // 把最后一次交换的位置保存起来 减少循环次数\n  }\n}\n\n// 改进版 每一次进行正向和反向冒泡，得出最大最小值\nfunction bubbleSort3(arr){\n  var low = 0;\n  var high = arr.length - 1;\n  var tmp, j;\n  while( low < high){\n    for(j = low ; j< high; ++j){\n      // 正向冒泡\n      if( arr[j] > arr[j+1]){\n          [arr[j+1],arr[j]] = [arr[j],arr[j+1]];\n      }\n    }\n    --high;\n    \n    for(j = high; j>low; --j){\n      if(arr[j] < arr[j-1]){\n         [arr[j-1],arr[j]] = [arr[j],arr[j-1]];\n      }\n    }\n    ++low;\n  }\n  \n  return arr;\n}\n"
     },
     {
       "type": "code",
@@ -19,6 +19,11 @@
       "type": "code",
       "language": "javascript",
       "data": "// 插入排序\n// 类似于扑克牌 每次拿出一个元素 从已经排序的数组中从后向前排序\nfunction insertionSort(arr) {\n  if(Object.prototype.toString.call(arr) !== '[Object Array]'){\n    throw new Error('类型错误')\n  }\n  \n  for(var i = 1 ; i < arr.length ; i++ ){\n    // 第一个已经默认有序 所以i从1开始\n    var key = array[i]; \n    var j = i - 1;\n    while(j >= 0 && array[j] > key){\n      // 一旦 j之前的数组有比当前排序key值大的情况\n      // 将这个值后移一位 j最大为i值 不用担心会覆盖未排序数组\n      arr[j+1] = arr[j];\n      j--; // 继续向前比较\n    }\n    arr[j+1] = key; \n  }\n  \n  return arr;\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// 归并排序\nfunction merge_sort(arr){\n  if(arr.length < 2){\n    return arr;\n  }\n  var middle = parseInt(arr.length/2);\n  var left = arr.slice(0,middle);\n  var right = arr.slice(middle);\n  \n  return merge(merge_sort(left),merge_sort(right));\n}\n\nfunction merge(left,right){\n  var result = [];\n  var i = 0, j = 0;\n  while(i < left.length && j < right.length){\n    if(left[i] > right[j]){\n      result.push(right[j++]);\n    }\n    else{\n      result.push(left[i++]);\n    }\n  }\n  while(i < left.length){\n    result.push(left[i++]);\n  }\n  while(j < right.length){\n    result.push(right[j++]);\n  }\n  \n  return result;\n}\n"
     },
     {
       "type": "code",

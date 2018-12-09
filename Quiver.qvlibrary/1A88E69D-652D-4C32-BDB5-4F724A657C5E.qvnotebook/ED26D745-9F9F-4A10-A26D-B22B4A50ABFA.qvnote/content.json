@@ -1,0 +1,13 @@
+{
+  "title": "EM REM",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Rem 相对于根元素 HTML的 fontSize<div><br><div>em 相对于使用em元素的父元素fontSize</div><div>有继承性</div></div>"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/CCDCB480503B451498A884AEC642A4AE.png\" alt=\"屏幕快照 2018-12-02 下午10.57.13.png\" width=\"952\" height=\"427\">"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "title": "垂直居中高度",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>1. 已知宽高的水平垂直居中</div>"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp; - 绝对定位与负边距"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "#container{\n    position:relative;\n}\n \n#center{\n    width:100px;\n    height:100px;\n    position:absolute;\n    top:50%;\n    left:50%;\n    margin:-50px 0 0 -50px;\n}  "
+    },
+    {
+      "type": "text",
+      "data": "&nbsp; - 绝对定位于margin"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "#container{\n    position:relative;\n}\n \n#center{\n    position:absolute;\n    margin:auto;\n    top:0;\n    bottom:0;\n    left:0;\n    right:0;\n}"
+    },
+    {
+      "type": "text",
+      "data": "<div><br></div><div>2.未知宽高</div>"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp;- 元素是 inline 或者 inline-block"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "#container{\n    display:table-cell;\n    text-align:center;\n    vertical-align:middle;\n}\n \n#center{\n \n}\n"
+    },
+    {
+      "type": "text",
+      "data": "- transform"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "#container{\n    position:relative;\n}\n \n#center{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}"
+    },
+    {
+      "type": "text",
+      "data": "- flex"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "#container{\n    display:flex;\n    justify-content:center;\n    align-items: center;\n}\n \n#center{\n \n}"
+    }
+  ]
+}

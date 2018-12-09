@@ -1,0 +1,10 @@
+{
+  "title": "简单模板引擎",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var TemplateEngine = function(tpl, data) {\n    var re = /<%([^%>]+)?%>/g;\n    while(match = re.exec(tpl)) {\n        tpl = tpl.replace(match[0], data[match[1]])\n    }\n    return tpl;\n}"
+    }
+  ]
+}

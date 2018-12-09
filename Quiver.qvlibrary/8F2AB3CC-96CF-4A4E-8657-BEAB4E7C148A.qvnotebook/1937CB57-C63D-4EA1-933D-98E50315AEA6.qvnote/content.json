@@ -3,7 +3,7 @@
   "cells": [
     {
       "type": "text",
-      "data": "1. Map<div><br></div><div>2. weakMap</div><div><br></div><div>3. set&nbsp;</div><div><br></div><div>4. weakSet</div>"
+      "data": "1. Map<div><br></div><div>2. weakMap</div><div>&nbsp; - weakMap 对 key 只是弱引用</div><div>&nbsp; - weakMap 的 key 只能是对象</div><div>&nbsp; 不会阻止垃圾回收&nbsp;</div><div>&nbsp; 不可枚举（）</div><div>3. set&nbsp;</div><div>&nbsp;&nbsp;</div><div>4. weakSet</div>"
     }
   ]
 }

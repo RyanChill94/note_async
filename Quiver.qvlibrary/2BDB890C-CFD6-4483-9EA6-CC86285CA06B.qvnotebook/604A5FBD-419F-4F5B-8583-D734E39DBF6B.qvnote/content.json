@@ -47,6 +47,15 @@
     },
     {
       "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var re = /<%([^%>]+)?%>/g;\nwhile(match = re.exec(tpl)) {\n    console.log(match);\n}"
+    },
+    {
+      "type": "text",
       "data": "<div><br></div>"
     }
   ]

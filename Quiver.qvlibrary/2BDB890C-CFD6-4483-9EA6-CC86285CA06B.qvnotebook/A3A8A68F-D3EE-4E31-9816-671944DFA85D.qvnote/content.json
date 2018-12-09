@@ -44,6 +44,14 @@
     {
       "type": "text",
       "data": "存疑<div>1. 所谓的公私钥都是相对的&nbsp;</div><div>在数学上是可以反推的</div><div><span style=\"color: rgb(26, 26, 26); font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; white-space: pre-wrap; widows: 2; background-color: rgb(255, 255, 255);\">RSA的原理是得到两个大素数的乘积是简单的事，但想从该乘积反推出这两个大素数却没有任何有效的办法</span><br></div><div style=\"orphans: 2; widows: 2;\"><font face=\"-apple-system, system-ui, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif\"><span style=\"font-size: 15px; white-space: pre-wrap;\">因数分解  大整数的影视</span></font></div><div><a href=\"https://www.zhihu.com/question/36256081\">https://www.zhihu.com/question/36256081</a><br></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgb(79, 79, 79); font-family: Arial; font-size: 13.6364px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">RSA性能是非常低的，原因在于寻找大素数、大数计算、数据分割需要耗费很多的CPU周期，所以一般的HTTPS连接只在第一次握手时使用非对称加密，通过握手交换对称加密密钥，在之后的通信走对称加密。</span>"
     }
   ]
 }
