@@ -1,0 +1,10 @@
+{
+  "title": "webpack.config.js",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const base = require('./webpack.base');\nconst merge = require('webpack-merge');\n\nconst config =\n    process.env.NODE_ENV === 'production'\n        ? require('./webpack.prod.js')\n        : require('./webpack.dev.js');\n\nmodule.exports = merge(base, config);\n"
+    }
+  ]
+}
