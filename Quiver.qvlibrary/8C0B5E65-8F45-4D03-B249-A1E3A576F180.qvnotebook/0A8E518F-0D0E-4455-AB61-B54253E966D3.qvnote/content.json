@@ -1,0 +1,10 @@
+{
+  "title": "lcoal dispath in React",
+  "cells": [
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import React, { Component } from 'react';\n\nconst counter = (state = { value: 0 }, action) => {\n  switch (action.type) {\n    case 'INCREMENT':\n      return { value: state.value + 1 };\n    case 'DECREMENT':\n      return { value: state.value - 1 };\n    default:\n      return state;\n  }\n}\n\nclass Counter extends Component {\n  state = counter(undefined, {});\n  \n  dispatch(action) {\n    this.setState(prevState => counter(prevState, action));\n  }\n\n  increment = () => {\n    this.dispatch({ type: 'INCREMENT' });\n  };\n\n  decrement = () => {\n    this.dispatch({ type: 'DECREMENT' });\n  };\n  \n  render() {\n    return (\n      <div>\n        {this.state.value}\n        <button onClick={this.increment}>+</button>\n        <button onClick={this.decrement}>-</button>\n      </div>\n    )\n  }\n}"
+    }
+  ]
+}

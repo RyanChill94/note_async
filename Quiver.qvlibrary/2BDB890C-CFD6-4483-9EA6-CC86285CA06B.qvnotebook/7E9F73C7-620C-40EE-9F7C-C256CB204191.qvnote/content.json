@@ -1,0 +1,21 @@
+{
+  "title": "Script defer vs async",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1.normal<div>遇到script标签之后 立即下载 立即执行</div>"
+    },
+    {
+      "type": "text",
+      "data": "2. async<div>加载和渲染后续文档元素的过程和script的加载并行进行，下载完后执行并阻塞文档元素的解析</div><div><br></div><div>async 完全不考虑顺序 只要加载完就执行</div><div>对于没有任何依赖的脚本非常合适 比如 Google Analytics</div>"
+    },
+    {
+      "type": "text",
+      "data": "3. defer<div>并行下载，但是在所有文档元素解析完之后再执行，在DOMcontentload之前</div><div>【高程第三版本 指出延迟脚本不一定是按顺序执行，有依赖关系的会有风险】<br></div>"
+    },
+    {
+      "type": "text",
+      "data": "<img data-src=\"/img/bVWhRl?w=801&amp;h=814\" src=\"quiver-image-url/FF9BA469B567D1F020D45DBAE088C286.png\" alt=\"wfL82.png\" title=\"wfL82.png\" style=\"cursor: pointer; display: inline;\" width=\"590\" height=\"600\">"
+    }
+  ]
+}
