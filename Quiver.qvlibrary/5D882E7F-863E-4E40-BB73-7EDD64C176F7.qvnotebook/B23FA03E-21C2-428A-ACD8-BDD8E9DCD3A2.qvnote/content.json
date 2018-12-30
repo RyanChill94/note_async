@@ -1,0 +1,22 @@
+{
+  "title": "数据相邻元素求和",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<font face=\"Menlo\"><span style=\"font-size: 7px;\"><span style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100); background-color: rgb(255, 255, 255);\">实现一个函数，要求：</span><br style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100);\"><br style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100);\"><span style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100); background-color: rgb(255, 255, 255);\">输入：[1, 4, 4, 4, 0, 3, 3, 1]</span><br style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100);\"><span style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100); background-color: rgb(255, 255, 255);\">输出：[1, 12, 0, 6, 1]</span><br style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100);\"><br style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100);\"><span style=\"caret-color: rgb(100, 100, 100); color: rgb(100, 100, 100); background-color: rgb(255, 255, 255);\">即“压缩”数组，如果相邻的元素是一样的话，以其和来代替。比如上述例子中连续3个4，最终换成了12，后面的2个3，也换成了6。</span></span></font>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// reduce\nfunction compact(arr) {\n    var r = [];\n    arr.reduce((p,c)=>{\n        if (p !== c) {\n            r.push(c);\n        } else {\n            r[r.length - 1] += c;\n        }\n        return c\n    }\n    , NaN)\n}\n\n\n// regExp\nfunction compact(arr){\n  var r = [];\n  (arr.join(',')+',').replace(/((\\d+),)\\1*/g, (m ,c1, c2) => {\n    console.log(m, c1, c2);\n    r.push(c2 * m.length / c1.length)\n  })\n  \n  return r;\n}\n\n\ncompact([1, 2, 2, 2, 4, 4, 46, 7])"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    },
+    {
+      "type": "text",
+      "data": "<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>"
+    }
+  ]
+}
