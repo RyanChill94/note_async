@@ -1,0 +1,17 @@
+{
+  "title": "remain",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>1. vue extend&nbsp;</div><div>生成的是组件构造器</div><div>&nbsp; - 使用场景？</div><div>&nbsp; - 与mixin的区别 单继承/多继承？</div>"
+    },
+    {
+      "type": "text",
+      "data": "2."
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

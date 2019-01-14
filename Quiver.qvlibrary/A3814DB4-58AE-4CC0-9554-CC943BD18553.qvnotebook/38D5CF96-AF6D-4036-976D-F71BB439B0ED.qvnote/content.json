@@ -1,0 +1,22 @@
+{
+  "title": "vue_best_parctise",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 封装好api之后统一管理<div>&nbsp;给组件暴露出action mapAction ≈ mapDispatchToProps，&nbsp;</div><div>&nbsp;组件中直接调用触发mutation</div><div><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "sass",
+      "data": "methods: {\n  ...mapActions([\n    'a',\n    'b'\n  ])\n}\n"
+    },
+    {
+      "type": "text",
+      "data": "2. 将store中的值通过 mapState注入进component里面的computed属性&nbsp;"
+    },
+    {
+      "type": "text",
+      "data": "3. 通过 $parent 调用父级方法<div>&nbsp; &nbsp;向子组件传递函数</div><div>&nbsp; &nbsp;子组件调用: this.cb() or this.emit(‘xxx’,info);</div>"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Vue 通信方法",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 父组件传递 props, 子组件通过$emit 相应事件"
+    },
+    {
+      "type": "text",
+      "data": "2. emitter mixin ， 找到想要通信组件的子级，在$emit 出去"
+    },
+    {
+      "type": "text",
+      "data": "3. event-bus 本质是一个 pub/sub"
+    },
+    {
+      "type": "text",
+      "data": "4. 使用 vuex"
+    }
+  ]
+}

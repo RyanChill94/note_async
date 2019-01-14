@@ -1,0 +1,9 @@
+{
+  "title": "开发过程",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "#1 zeus\n227 启动 python 服务 指定端口 eg 1234\n配置devServer 指定api 到 227 的 1234端口\nswitchOmega 指定改写host \n\n#2 creative_web\n227 fiscrv port  eg. fiscrv 6767\n本地 fisb release -Dwud qiuyuhan\n使用 devproxy bind 一个端口号\n227 启动 python 服务\nswitchOmega 指定改写host\n"
+    }
+  ]
+}

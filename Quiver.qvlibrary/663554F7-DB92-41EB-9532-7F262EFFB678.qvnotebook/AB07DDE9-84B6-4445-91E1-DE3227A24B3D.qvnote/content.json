@@ -1,0 +1,10 @@
+{
+  "title": "scss",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sass",
+      "data": "// 1. dynamic property\n@mixin setProperty($property,$value,$unit:null){\n\n   #{$property} :#{$value}$unit;\n\n}"
+    }
+  ]
+}
